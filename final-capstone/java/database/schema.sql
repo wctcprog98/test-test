@@ -1,7 +1,7 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS breweries; 
+DROP TABLE IF EXISTS users;
 
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP SEQUENCE IF EXISTS seq_brewery_id;
@@ -50,7 +50,5 @@ INSERT INTO users (username,password_hash,role, account_type, user_location) VAL
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 1, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Barrel Dog Brewing' , 2, '1234 Windsor ln', 'Oakland', 'California', 94612-2110);
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 3, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
-INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 4, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
-INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 5, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
 COMMIT TRANSACTION;
 

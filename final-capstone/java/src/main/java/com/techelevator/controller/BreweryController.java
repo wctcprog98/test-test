@@ -11,15 +11,13 @@ import java.util.List;
 
 @RestController
 public class BreweryController {
-   @Autowired
+    @Autowired
     BrewerySqlDAO brewerySqlDAO;
 
-   @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = "/", method = RequestMethod.GET)
     public List<Brewery> getAllBreweries() {
        return brewerySqlDAO.findAll();
-   }
-  //todo find by name
-    //todo find by location
-    //
+    }
 
+   //todo find by name
 }
