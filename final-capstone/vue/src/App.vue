@@ -7,20 +7,18 @@
     </div>
     <router-view />
     <div>
-      <p v-for="brewery in this.breweries" v-bind:key="brewery.id"> {{brewery.brewery_name}} </p>
+      <p v-for="brewery in this.breweries" v-bind:key="brewery.id"> {{brewery.breweryName}} </p>
     </div>
   </div>
 </template>
 
 <script>
-import BreweryService  from '@/services/BreweryService'
+import  BreweryService  from '@/services/BreweryService'
 
 export default {
   data() {
     return {
-      breweries: {
-
-      }
+      breweries: []
     }
   },
   created() {
