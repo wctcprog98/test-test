@@ -37,6 +37,7 @@ CREATE TABLE breweries (
         brewery_city varchar,
         brewery_state varchar,
         brewery_zip int,   
+        brewery_website varchar, 
 	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id),
 	CONSTRAINT FK_brewer_id FOREIGN KEY(brewer_id) REFERENCES users(user_id)
 );
@@ -47,7 +48,12 @@ INSERT INTO users (username,password_hash,role, account_type, user_location) VAL
 INSERT INTO users (username,password_hash,role, account_type, user_location) VALUES ('brewer','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'Brewer', 'Wisconsin');
 
 
-INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 1, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Diving Dog Brewhouse' , 1, '1892 Telegraph Ave', 'Oakland', 'California', 94612, 'http://www.leaddogbrewing.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Diving Dog Brewhouse' , 1, '1892 Telegraph Ave', 'Oakland', 'California', 94612, 'http://www.spotteddogbrewery.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Diving Dog Brewhouse' , 3, '1892 Telegraph Ave', 'Oakland', 'California', 94612, 'http://www.bossdogbrewing.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Diving Dog Brewhouse' , 1, '1892 Telegraph Ave', 'Oakland', 'California', 94612, 'http://www.runningdogsbrewery.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Diving Dog Brewhouse' , 1, '1892 Telegraph Ave', 'Oakland', 'California', 94612, 'http://dogmoneyllc.com');
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Diving Dog Brewhouse' , 3, '1892 Telegraph Ave', 'Oakland', 'California', 94612, 'http://www.tindogbrewing.com');
 
 COMMIT TRANSACTION;
 

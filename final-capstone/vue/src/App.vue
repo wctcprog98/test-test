@@ -8,6 +8,7 @@
     <router-view />
     <div>
       <p v-for="brewery in this.breweries" v-bind:key="brewery.id"> {{brewery.breweryName}} </p>
+      
     </div>
   </div>
 </template>
