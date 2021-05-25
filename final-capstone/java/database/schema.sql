@@ -32,7 +32,7 @@ CREATE TABLE users (
 CREATE TABLE breweries (
 	brewery_id int DEFAULT nextval('seq_brewery_id'::regclass) NOT NULL,
 	brewery_name varchar(50) NOT NULL,
-        brewer_id int NOT NULL,
+        brewer_id int,
         brewery_street_address varchar,
         brewery_city varchar,
         brewery_state varchar,
@@ -46,5 +46,11 @@ INSERT INTO users (username,password_hash,role, account_type, user_location) VAL
 INSERT INTO users (username,password_hash,role, account_type, user_location) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'Administrator', 'Texas');
 INSERT INTO users (username,password_hash,role, account_type, user_location) VALUES ('brewer','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN', 'Brewer', 'Wisconsin');
 
+
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 1, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Barrel Dog Brewing' , 2, '1234 Windsor ln', 'Oakland', 'California', 94612-2110);
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 3, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 4, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
+INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip) VALUES ('Diving Dog Brewhouse' , 5, '1892 Telegraph Ave', 'Oakland', 'California', 94612-2110);
 COMMIT TRANSACTION;
 
