@@ -10,7 +10,9 @@ public class Brewery {
     private String breweryState;
     private int breweryZipCode;
 
-    public Brewery(Long id, String breweryName, int brewerId, String breweryStreetAddress, String breweryCity, String breweryState, int breweryZipCode) {
+    private String breweryWebsite;
+
+    public Brewery(Long id, String breweryName, int brewerId, String breweryStreetAddress, String breweryCity, String breweryState, int breweryZipCode, String breweryWebsite) {
         this.id = id;
         this.breweryName = breweryName;
         this.brewerId = brewerId;
@@ -18,6 +20,7 @@ public class Brewery {
         this.breweryCity = breweryCity;
         this.breweryState = breweryState;
         this.breweryZipCode = breweryZipCode;
+        this.breweryWebsite = breweryWebsite;
 
     }
 
@@ -77,6 +80,14 @@ public class Brewery {
 
     public void setBreweryZipCode(int breweryZipCode) {
         this.breweryZipCode = breweryZipCode;
+    }
+
+    public String getBreweryWebsite() {
+        return breweryWebsite;
+    }
+
+    public void setBreweryWebsite(String breweryWebsite) {
+        this.breweryWebsite = breweryWebsite;
     }
 }
 
