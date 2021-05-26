@@ -12,5 +12,7 @@ public interface BreweryDAO  {
     List<Brewery> findAll();
     Brewery create(Brewery brewery);
     Brewery findById(Long id) throws BreweryNotFoundException;
+    void deactivateBrewery(Long id) throws BreweryNotFoundException;
+    void updateBrewery(Brewery brewery) throws BreweryNotFoundException;
 
 }

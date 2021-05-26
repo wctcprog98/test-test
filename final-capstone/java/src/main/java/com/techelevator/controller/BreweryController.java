@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
+
 public class BreweryController {
     @Autowired
     BrewerySqlDAO brewerySqlDAO;
@@ -21,13 +22,24 @@ public class BreweryController {
 
     @RequestMapping(path ="/breweries", method = RequestMethod.POST)
     public Brewery create(@RequestBody Brewery formBrewery) {
+        System.out.println(formBrewery);
         return brewerySqlDAO.create(formBrewery);
     }
 
     @RequestMapping(path ="/breweries/{id}", method = RequestMethod.GET)
-    public Brewery findById(@PathVariable Long breweryId) throws
+    public Brewery findById(@PathVariable Long id) throws
             BreweryNotFoundException {
-        return brewerySqlDAO.findById(breweryId);
+        return brewerySqlDAO.findById(id);
+    }
+
+    @RequestMapping(path ="/breweries/{id}", method = RequestMethod.DELETE)
+    public void deactivateBrewery(@PathVariable Long id) throws BreweryNotFoundException {
+        brewerySqlDAO.deactivateBrewery(id);
+    }
+
+    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.PUT)
+    public void updateBrewery(@RequestBody Brewery brewery) throws BreweryNotFoundException {
+        brewerySqlDAO.updateBrewery(brewery);
     }
 
 
