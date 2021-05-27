@@ -81,8 +81,8 @@ export default {
         breweryWebsite: this.breweryToUpdate.breweryWebsite,
         isActive: this.breweryToUpdate.active,
       };
-
-      breweryService.update(brewery).then((response) => {
+      console.log(brewery);
+      breweryService.update(brewery, this.breweryNumber).then((response) => {
         if (response.status === 200) {
           this.$router.push(`/breweries/${this.breweryNumber}`);
         }

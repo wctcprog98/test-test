@@ -17,8 +17,8 @@ export default {
         return http.get(`/breweries/${id}`)
     },
 
-    update(brewery) {
-        return http.put(`/breweries/${brewery.breweryId}`, brewery)
+    update(brewery, breweryId) {
+        return http.put(`/breweries/${breweryId}`, brewery)
     },
 
     delete(id) {
