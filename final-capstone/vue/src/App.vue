@@ -7,13 +7,7 @@
     </div>
     <router-view />
     <div>
-      <new-brewery-form />
-    </div>
-    <div>
-      <update-brewery-form />
-    </div>
-    <div>
-      <p v-for="brewery in this.breweries" v-bind:key="brewery.id"> {{brewery.breweryName}} </p>
+      <p v-for="brewery in this.breweries" v-bind:key="brewery.id"> {{brewery.breweryname}} </p>
       
     </div>
   </div>
@@ -21,14 +15,14 @@
 
 <script>
 import  BreweryService  from '@/services/BreweryService'
-import NewBreweryForm from './components/NewBreweryForm.vue';
-import UpdateBreweryForm from './components/UpdateBreweryForm.vue';
+
+
 
 export default {
-  components: { NewBreweryForm, UpdateBreweryForm },
+
   data() {
     return {
-      breweries: []
+      breweries: {}
     }
   },
   created() {

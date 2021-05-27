@@ -38,8 +38,8 @@ public class BreweryController {
     }
 
     @RequestMapping(path = "/breweries/{id}", method = RequestMethod.PUT)
-    public void updateBrewery(@RequestBody Brewery brewery) throws BreweryNotFoundException {
-        brewerySqlDAO.updateBrewery(brewery);
+    public void updateBrewery(@RequestBody Brewery brewery, @PathVariable Long id) throws BreweryNotFoundException {
+        brewerySqlDAO.updateBrewery(brewery, id);
     }
 
 

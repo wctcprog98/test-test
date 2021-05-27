@@ -13,6 +13,6 @@ public interface BreweryDAO  {
     Brewery create(Brewery brewery);
     Brewery findById(Long id) throws BreweryNotFoundException;
     void deactivateBrewery(Long id) throws BreweryNotFoundException;
-    void updateBrewery(Brewery brewery) throws BreweryNotFoundException;
+    void updateBrewery(Brewery brewery, Long id) throws BreweryNotFoundException;
 
 }

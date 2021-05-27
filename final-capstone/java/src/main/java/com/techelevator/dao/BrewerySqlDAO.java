@@ -74,12 +74,12 @@ public class BrewerySqlDAO implements BreweryDAO{
     }
 
     @Override
-    public void updateBrewery(Brewery brewery) throws BreweryNotFoundException {
+    public void updateBrewery(Brewery brewery, Long id) throws BreweryNotFoundException {
         String sql = "UPDATE breweries SET brewery_name = ?, brewer_id = ?, brewery_street_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ?, brewery_website = ?, isActive = ?" +
                 " WHERE brewery_id = ?";
-        System.out.println(brewery.getBreweryName());
+        System.out.println(brewery);
         try {
-            jdbcTemplate.update(sql, brewery.getBreweryName(), brewery.getBrewerId(), brewery.getBreweryStreetAddress(), brewery.getBreweryCity(), brewery.getBreweryState(), brewery.getBreweryZipCode(), brewery.getBreweryWebsite(),brewery.isActive(), brewery.getId());
+            jdbcTemplate.update(sql, brewery.getBreweryName(), brewery.getBrewerId(), brewery.getBreweryStreetAddress(), brewery.getBreweryCity(), brewery.getBreweryState(), brewery.getBreweryZipCode(), brewery.getBreweryWebsite(),brewery.isActive(), id);
         } catch (DataAccessException e) {
             throw new BreweryNotFoundException();
         }

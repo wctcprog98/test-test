@@ -98,5 +98,20 @@ public class Brewery {
     public void setActive(boolean active) {
         isActive = active;
     }
+
+    @Override
+    public String toString() {
+        return "Brewery{" +
+                "id=" + id +
+                ", breweryName='" + breweryName + '\'' +
+                ", brewerId=" + brewerId +
+                ", breweryStreetAddress='" + breweryStreetAddress + '\'' +
+                ", breweryCity='" + breweryCity + '\'' +
+                ", breweryState='" + breweryState + '\'' +
+                ", breweryZipCode=" + breweryZipCode +
+                ", isActive=" + isActive +
+                ", breweryWebsite='" + breweryWebsite + '\'' +
+                '}';
+    }
 }
 
