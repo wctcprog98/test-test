@@ -47,7 +47,7 @@ CREATE TABLE breweries (
         brewery_state varchar,
         brewery_zip int,   
         brewery_website varchar, 
-        isActive boolean DEFAULT TRUE NOT NULL, 
+        active boolean DEFAULT TRUE NOT NULL, 
 	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id),
 	CONSTRAINT FK_brewer_id FOREIGN KEY(brewer_id) REFERENCES users(user_id)
 );
@@ -59,7 +59,7 @@ CREATE TABLE beers (
         beer_description varchar(500) NOT NULL,
         beer_abv numeric,
         brewery_id int NOT NULL,
-        isActive boolean DEFAULT TRUE NOT NULL,
+        active boolean DEFAULT TRUE NOT NULL,
         CONSTRAINT FK_brewery_id FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
 );
 

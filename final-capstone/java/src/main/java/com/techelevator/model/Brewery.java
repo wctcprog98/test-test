@@ -9,7 +9,7 @@ public class Brewery {
     private String breweryCity;
     private String breweryState;
     private int breweryZipCode;
-    private boolean isActive;
+    private boolean active;
     private String breweryWebsite;
 
     public Brewery(Long id, String breweryName, int brewerId, String breweryStreetAddress, String breweryCity, String breweryState, int breweryZipCode, String breweryWebsite) {
@@ -21,7 +21,7 @@ public class Brewery {
         this.breweryState = breweryState;
         this.breweryZipCode = breweryZipCode;
         this.breweryWebsite = breweryWebsite;
-        this.isActive = true;
+        this.active = true;
 
     }
 
@@ -92,11 +92,11 @@ public class Brewery {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        this.active = active;
     }
 
     @Override
@@ -109,7 +109,7 @@ public class Brewery {
                 ", breweryCity='" + breweryCity + '\'' +
                 ", breweryState='" + breweryState + '\'' +
                 ", breweryZipCode=" + breweryZipCode +
-                ", isActive=" + isActive +
+                ", isActive=" + active +
                 ", breweryWebsite='" + breweryWebsite + '\'' +
                 '}';
     }

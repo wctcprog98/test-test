@@ -55,14 +55,17 @@ public class BrewerySqlDAO implements BreweryDAO{
 
 
         if(results.next()){
+            System.out.println(mapRowToBrewery(results));
+
             return mapRowToBrewery(results);
+
         }
         throw new BreweryNotFoundException();
     }
 
     @Override
     public void deactivateBrewery(Long breweryId) throws BreweryNotFoundException {
-        String sql = "UPDATE breweries SET isActive = false WHERE brewery_id = ?";
+        String sql = "UPDATE breweries SET active = false WHERE brewery_id = ?";
         try {
 
             findById(breweryId);
@@ -75,7 +78,7 @@ public class BrewerySqlDAO implements BreweryDAO{
 
     @Override
     public void updateBrewery(Brewery brewery, Long id) throws BreweryNotFoundException {
-        String sql = "UPDATE breweries SET brewery_name = ?, brewer_id = ?, brewery_street_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ?, brewery_website = ?, isActive = ?" +
+        String sql = "UPDATE breweries SET brewery_name = ?, brewer_id = ?, brewery_street_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ?, brewery_website = ?, active = ?" +
                 " WHERE brewery_id = ?";
 //        System.out.println(brewery);
         try {
@@ -96,6 +99,7 @@ public class BrewerySqlDAO implements BreweryDAO{
         brewery.setBreweryState(results.getString("brewery_state"));
         brewery.setBreweryZipCode(results.getInt("brewery_zip"));
         brewery.setBreweryWebsite(results.getString("brewery_website"));
+        brewery.setActive(results.getBoolean("active"));
         return brewery;
 
 

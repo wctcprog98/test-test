@@ -71,6 +71,7 @@ export default {
   },
   methods: {
     updateBrewery() {
+      console.log(this.breweryToUpdate);
       const brewery = {
         breweryName: this.breweryToUpdate.breweryName,
         brewerId: this.breweryToUpdate.brewerId,
@@ -79,7 +80,7 @@ export default {
         breweryState: this.breweryToUpdate.breweryState,
         breweryZipCode: this.breweryToUpdate.breweryZipCode,
         breweryWebsite: this.breweryToUpdate.breweryWebsite,
-        isActive: this.breweryToUpdate.active,
+        active: this.breweryToUpdate.active,
       };
       console.log(brewery);
       breweryService.update(brewery, this.breweryNumber).then((response) => {
