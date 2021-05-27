@@ -84,7 +84,7 @@ export default {
       console.log(brewery);
       breweryService.update(brewery, this.breweryNumber).then((response) => {
         if (response.status === 200) {
-          this.$router.push(`/breweries/${this.breweryNumber}`);
+          this.$store.commit("TOGGLE_UPDATE_BREWERY");
         }
       });
     },

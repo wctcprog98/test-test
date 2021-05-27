@@ -1,6 +1,10 @@
 <template>
   <div>
-    <update-brewery-form v-bind:breweryNumber="parseInt($route.params.id)" />
+    <button v-on:click="showUpdateForm()">Show Form</button>
+    <update-brewery-form
+      v-if="this.$store.state.showUpdateBreweryForm"
+      v-bind:breweryNumber="parseInt($route.params.id)"
+    />
   </div>
 </template>
 
@@ -8,6 +12,11 @@
 import UpdateBreweryForm from "../components/UpdateBreweryForm.vue";
 export default {
   components: { UpdateBreweryForm },
+  methods: {
+    showUpdateForm() {
+      this.$store.commit("TOGGLE_UPDATE_BREWERY");
+    },
+  },
 };
 </script>
 
