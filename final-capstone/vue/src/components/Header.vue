@@ -1,4 +1,6 @@
+
 <template>
+
     <div class="Header">
         <div class="flex-container"> 
             <div><img src="../images/logo.png"/></div>

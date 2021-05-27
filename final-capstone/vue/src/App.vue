@@ -151,6 +151,16 @@ img{
  
 }
 
+/* .form-signin{
+  float: right;
+  background-color: rgb(233, 218, 153);
+  border: 5px solid black;
+  border-radius: 12px;
+  padding: 4%;
+
+  flex-grow: 1;
+} */
+
 .title:hover{
   border: 5px  solid yellow ;
 }
