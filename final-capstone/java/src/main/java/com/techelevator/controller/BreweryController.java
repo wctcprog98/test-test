@@ -22,7 +22,6 @@ public class BreweryController {
 
     @RequestMapping(path ="/breweries", method = RequestMethod.POST)
     public Brewery create(@RequestBody Brewery formBrewery) {
-        System.out.println(formBrewery);
         return brewerySqlDAO.create(formBrewery);
     }
 
@@ -39,6 +38,7 @@ public class BreweryController {
 
     @RequestMapping(path = "/breweries/{id}", method = RequestMethod.PUT)
     public void updateBrewery(@RequestBody Brewery brewery, @PathVariable Long id) throws BreweryNotFoundException {
+        System.out.println(brewery);
         brewerySqlDAO.updateBrewery(brewery, id);
     }
 

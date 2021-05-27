@@ -1,94 +1,71 @@
 <template>
   <div>
-    <button v-on:click="showForm = !showForm">Add New User</button>
+    <button v-on:click="showForm = !showForm">Add a New Brewery</button>
 
-    <form v-show="showForm" v-on:submit.prevent="addBrewery">
-      <label for="breweryname">Brewery Name</label>
-      <input type="text" name="breweryname" v-model="breweryname" />
+    <form v-show="showForm" v-on:submit.prevent="addBrewery()">
+      <label for="brewery-name">Brewery Name</label>
+      <input type="text" name="brewery-name" v-model="newBrewery.breweryName" />
 
-      <label for="brewerId">Brewery ID</label>
+      <label for="brewer-id">Brewery ID</label>
       <input
-        v-model="brewerId"
+        v-model="newBrewery.brewerId"
         type="text"
         placeholder="do I work?"
         name="brewer-id"
       />
 
-      <label for="breweryaddress"> Address</label>
+      <label for="brewery-address"> Address</label>
       <input
-        v-model="newBrewery.breweryaddress"
+        v-model="newBrewery.breweryStreetAddress"
         type="text"
-        name="breweryaddress"
+        name="brewery-address"
       />
 
       <label for="brewery-city"> City</label>
-      <input v-model="breweryCity" type="text" name="brewery-city" />
+      <input v-model="newBrewery.breweryCity" type="text" name="brewery-city" />
 
       <label for="brewery-state"> State</label>
-      <input v-model="breweryState" type="text" name="brewery-state" />
+      <input
+        v-model="newBrewery.breweryState"
+        type="text"
+        name="brewery-state"
+      />
 
       <label for="brewery-zip">Zip</label>
-      <input v-model="breweryZip" type="text" name="brewery-zip" />
+      <input
+        v-model="newBrewery.breweryZipCode"
+        type="text"
+        name="brewery-zip"
+      />
 
       <label for="brewery-website">Website</label>
-      <input v-model="breweryWebsite" type="text" name="brewery-website" />
+      <input
+        v-model="newBrewery.breweryWebsite"
+        type="text"
+        name="brewery-website"
+      />
       <button type="submit" class="btn save">Save Brewery</button>
     </form>
   </div>
 </template>
 
 <script>
+import breweryService from "@/services/BreweryService";
 export default {
   data() {
     return {
-      filter: {
-        newBrewery: "",
-        breweryname: "",
-        brewerId: "",
-        breweryAddress: "",
-        breweryCity: "",
-        breweryState: "",
-        breweryZip: "",
-        breweryWebsite: "",
-      },
       showForm: false,
-      newBrewery: {
-        newBrewery: "",
-        breweryname: "",
-        brewerId: "",
-        breweryAddress: "",
-        breweryCity: "",
-        breweryState: "",
-        breweryZip: "",
-        breweryWebsite: "",
-      },
+
+      newBrewery: {},
     };
   },
   methods: {
     addBrewery() {
-      console.log("I was submitted");
-      this.$axios
-        .post("/api/breweries", {
-          newBrewery: this.newBrewery,
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-    clearNewBrewery() {
-      this.newBrewery = {
-        newBrewery: "",
-        breweryname: "",
-        brewerId: "",
-        breweryAddress: "",
-        breweryCity: "",
-        breweryState: "",
-        breweryZip: "",
-        breweryWebsite: "",
-      };
+      breweryService.create(this.newBrewery).then((response) => {
+        if (response.status === 201) {
+          this.$router.push("/");
+        }
+      });
     },
   },
 };
