@@ -4,7 +4,7 @@
 
     <new-brewery-form />
     <brewery-summary
-      v-for="brewery in this.breweries"
+      v-for="brewery in breweries"
       v-bind:key="brewery.id"
       v-bind:brewery="brewery"
     />
@@ -19,14 +19,17 @@ export default {
   components: { BrewerySummary, NewBreweryForm },
 
   data() {
-    return {
-      breweries: {},
-    };
+    return {};
   },
   created() {
     BreweryService.list().then((response) => {
-      this.breweries = response.data;
+      this.$store.commit("SET_BREWERIES", response.data);
     });
+  },
+  computed: {
+    breweries() {
+      return this.$store.state.breweries;
+    },
   },
 };
 </script>

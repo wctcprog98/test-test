@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    showUpdateBreweryForm: false
+    showUpdateBreweryForm: false,
+    breweries: {}
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -41,6 +42,12 @@ export default new Vuex.Store({
     },
     TOGGLE_UPDATE_BREWERY(state) {
       state.showUpdateBreweryForm = !state.showUpdateBreweryForm;
+    },
+    SET_BREWERIES(state, breweries) {
+      state.breweries = breweries;
+    },
+    ADD_BREWERY(state, brewery) {
+      state.breweries.push(brewery);
     }
   }
 })
