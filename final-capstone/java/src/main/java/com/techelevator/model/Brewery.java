@@ -12,6 +12,8 @@ public class Brewery {
     private boolean active;
     private String breweryWebsite;
 
+    public Brewery(){};
+
     public Brewery(Long id, String breweryName, int brewerId, String breweryStreetAddress, String breweryCity, String breweryState, int breweryZipCode, String breweryWebsite) {
         this.id = id;
         this.breweryName = breweryName;
@@ -24,8 +26,6 @@ public class Brewery {
         this.active = true;
 
     }
-
-    public Brewery(){};
 
     public Long getId() {
         return id;

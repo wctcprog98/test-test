@@ -5,3 +5,5 @@ TO REBUILD DB RUN SCRIPTS IN THIS ORDER
 - appUsers.sql
 - breweries.sql
 - beers.sql
+- events.sql
+- news.sql

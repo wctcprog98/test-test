@@ -16,11 +16,7 @@ public class User {
    private boolean active;
    private Set<Authority> authorities = new HashSet<>();
    private String accountType;
-
-
-
    private String userLocation;
-
 
    public User() { }
 
@@ -67,8 +63,6 @@ public class User {
       return authorities;
    }
 
-
-
    public void setAuthorities(Set<Authority> authorities) {
       this.authorities = authorities;
    }
@@ -109,7 +103,6 @@ public class User {
               Objects.equals(authorities, user.authorities);
    }
 
-
    @Override
    public int hashCode() {
       return Objects.hash(id, username, password, active, authorities);
@@ -122,6 +115,8 @@ public class User {
               ", username='" + username + '\'' +
               ", activated=" + active +
               ", authorities=" + authorities +
+              ", accountType=" + accountType +
+              ", userLocation=" + userLocation +
               '}';
    }
 }
