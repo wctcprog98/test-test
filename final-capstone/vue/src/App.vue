@@ -1,12 +1,5 @@
 <template>
   <div id="app">
-    <div class="DashBoard">
-      <Header />
-      <brewery-list />
-      <main-top />
-      <main-bottom />
-    </div>
-
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
       <router-link
@@ -21,14 +14,7 @@
 </template>
 
 <script>
-import BreweryList from "./components/BreweryList.vue";
-import MainTop from "./components/MainTop.vue";
-import Header from "./components/Header.vue";
-import MainBottom from "./components/MainBottom.vue";
-
-export default {
-  components: { BreweryList, MainTop, Header, MainBottom },
-};
+export default {};
 </script>
 
 <style>
@@ -115,7 +101,7 @@ img {
   border-style: ridge;
 }
 
-/* .form-signin{
+.form-signin {
   float: right;
   background-color: rgb(233, 218, 153);
   border: 5px solid black;
@@ -123,7 +109,7 @@ img {
   padding: 4%;
 
   flex-grow: 1;
-} */
+}
 
 .title:hover {
   border: 5px solid yellow;
