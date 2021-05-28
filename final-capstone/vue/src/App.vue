@@ -1,17 +1,11 @@
 <template>
   <div id="app">
-
-    <div class="DashBoard"> 
-    <Header> </Header>
-    <brewery-card> </brewery-card>
-    <main-top> </main-top>
-    <main-bottom> </main-bottom>
-
-
-
-
-
-  </div>
+    <div class="DashBoard">
+      <Header />
+      <brewery-list />
+      <main-top />
+      <main-bottom />
+    </div>
 
     <div id="nav">
       <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
@@ -22,133 +16,103 @@
       >
     </div>
     <router-view />
-    <div>
-      <p v-for="brewery in this.breweries" v-bind:key="brewery.id">
-        {{ brewery.breweryName }}
-      </p>
-    </div>
+    <div></div>
   </div>
 </template>
 
 <script>
-import BreweryService from "@/services/BreweryService";
-
-
-import BreweryCard from "./components/BreweryCard.vue";
+import BreweryList from "./components/BreweryList.vue";
 import MainTop from "./components/MainTop.vue";
 import Header from "./components/Header.vue";
 import MainBottom from "./components/MainBottom.vue";
 
 export default {
-  data() {
-    return {
-      breweries: {},
-    };
-  },
-  created() {
-    BreweryService.list().then((response) => {
-      this.breweries = response.data;
-    });
-  },
-  components: {BreweryCard ,MainTop, Header, MainBottom}
-  
+  components: { BreweryList, MainTop, Header, MainBottom },
 };
 </script>
 
 <style>
-.DashBoard{
+.DashBoard {
   box-sizing: border-box;
   padding: 25px;
   display: grid;
-  grid-template-rows: 1fr 5fr 3fr ;
-  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 5fr 3fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 7%;
-  grid-template-areas: 
-  "Header Header Header"
-  "BreweryCard MainTop Maintop"
-  "BreweryCard MainBottom MainBottom"
-  
-
-  
-  ;
+  grid-template-areas:
+    "Header Header Header"
+    "BreweryCard MainTop Maintop"
+    "BreweryCard MainBottom MainBottom";
 }
 
-.Header{
+.Header {
   grid-area: Header;
-  background: goldenrod;
+  background: #ffd700;
   height: 120%;
   border-radius: 10px;
-  border: 6px solid  black;
-  
-
+  border: 6px solid black;
 }
 
-.BreweryCard{
+.BreweryCard {
   grid-area: BreweryCard;
-  background: goldenrod;
+  background: #ffd700;
   border-radius: 10px;
   border: 6px solid black;
 }
 
-.MainTop{
+.MainTop {
   grid-area: MainTop;
-  background: goldenrod;
+  background: #ffd700;
   border-radius: 10px;
   border: 6px solid black;
-
 }
 
-.MainBottom{
+.MainBottom {
   grid-area: MainBottom;
- background: goldenrod;
+  background: #ffd700;
   border-radius: 10px;
   border: 6px solid black;
 }
 
 body {
-  background-image: url('./images/background.jpg');
-  background-size:cover;
-  
+  background-image: url("./images/background.jpg");
+  background-size: cover;
+
   background-repeat: repeat-y;
 }
 
-img{
+img {
   width: 120px;
   height: 120px;
-  
- 
+
   border-radius: 140%;
-  
-   border: 5px solid black;
-  
+
+  border: 5px solid black;
 }
 
-.flex-container{
+.flex-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
   padding-top: 20px;
   padding-left: 10px;
-  background-color: goldenrod;
-
+  background-color: #ffd700;
 }
 
-.title{
+.title {
   font: bold;
   font-size: 100px;
-  
- 
-  color: goldenrod;
+
+  color: #ffd700;
   justify-items: right;
-  font-family: 'Bierg', sans-serif;
-  border: 5px  solid black ;
+  font-family: "Bierg", sans-serif;
+  border: 5px solid black;
   padding-left: 1%;
   padding-right: -10%;
   border-radius: 10px;
-  background-color:brown;
+  background-color: brown;
   border-style: ridge;
- 
 }
 
 /* .form-signin{
@@ -161,10 +125,9 @@ img{
   flex-grow: 1;
 } */
 
-.title:hover{
-  border: 5px  solid yellow ;
+.title:hover {
+  border: 5px solid yellow;
 }
-@import url('http://fonts.cdnfonts.com/css/biergarten');
-
+@import url("http://fonts.cdnfonts.com/css/biergarten");
 </style>
 
