@@ -19,8 +19,8 @@ export default {};
   grid-gap: 7%;
   grid-template-areas:
     "Header Header Header"
-    "BreweryCard MainTop Maintop"
-    "BreweryCard MainBottom MainBottom";
+    "BreweryCard TopRated TopRated"
+    "BreweryCard events-list events-list";
 }
 
 .Header {
@@ -65,15 +65,15 @@ export default {};
 
 /* end of card test */
 
-.MainTop {
-  grid-area: MainTop;
+.TopRated {
+  grid-area: TopRated;
   background: #ffd700;
   border-radius: 10px;
   border: 6px solid black;
 }
 
-.MainBottom {
-  grid-area: MainBottom;
+.events-list {
+  grid-area: events-list;
   background: #ffd700;
   border-radius: 10px;
   border: 6px solid black;

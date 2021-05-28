@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '../views/Home.vue'
 import BreweryDetails from '../views/BreweryDetails.vue'
-import Login from '../views/Login.vue'
+// import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
@@ -38,14 +38,14 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    {
-      path: "/login",
-      name: "login",
-      component: Login,
-      meta: {
-        requiresAuth: false
-      }
-    },
+    // {
+    //   path: "/login",
+    //   name: "login",
+    //   component: Login,
+    //   meta: {
+    //     requiresAuth: false
+    //   }
+    // },
     {
       path: "/logout",
       name: "logout",
