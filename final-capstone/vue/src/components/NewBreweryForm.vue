@@ -63,7 +63,8 @@ export default {
     addBrewery() {
       breweryService.create(this.newBrewery).then((response) => {
         if (response.status === 201) {
-          this.$router.push("/");
+          this.showForm = false;
+          this.newBrewery = {};
         }
       });
     },

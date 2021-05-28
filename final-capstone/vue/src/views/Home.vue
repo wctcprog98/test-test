@@ -1,19 +1,22 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
-    <new-brewery-form />
+    <div class="DashBoard">
+      <Header />
+      <brewery-list />
+      <main-top />
+      <main-bottom />
+    </div>
   </div>
 </template>
 
 <script>
-import NewBreweryForm from '../components/NewBreweryForm.vue';
-
-
+import BreweryList from "../components/BreweryList.vue";
+import Header from "../components/Header.vue";
+import MainBottom from "../components/MainBottom.vue";
+import MainTop from "../components/MainTop.vue";
 export default {
-  components: { NewBreweryForm },
-  name: "home"
- 
+  components: { Header, BreweryList, MainTop, MainBottom },
+  name: "home",
 };
 </script>
 

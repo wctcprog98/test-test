@@ -39,12 +39,13 @@ public class BrewerySqlDAO implements BreweryDAO{
     }
 
     @Override
-    public Brewery create(Brewery breweryToAdd) {
-        String sql = "INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) " +
+    public void create(Brewery breweryToAdd) {
+        String sql = "INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city," +
+                " brewery_state, brewery_zip, brewery_website) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
-        Brewery brewery = new Brewery();
-        jdbcTemplate.update(sql, breweryToAdd.getBreweryName(), breweryToAdd.getBrewerId(), breweryToAdd.getBreweryStreetAddress(), breweryToAdd.getBreweryCity(), breweryToAdd.getBreweryState(), breweryToAdd.getBreweryZipCode(), breweryToAdd.getBreweryWebsite());
-        return brewery;
+
+        jdbcTemplate.update(sql, breweryToAdd.getBreweryName(), breweryToAdd.getBrewerId(),
+                breweryToAdd.getBreweryStreetAddress(), breweryToAdd.getBreweryCity(), breweryToAdd.getBreweryState(), breweryToAdd.getBreweryZipCode(), breweryToAdd.getBreweryWebsite());
     }
 
     @Override
@@ -80,17 +81,16 @@ public class BrewerySqlDAO implements BreweryDAO{
     public void updateBrewery(Brewery brewery, Long id) throws BreweryNotFoundException {
         String sql = "UPDATE breweries SET brewery_name = ?, brewer_id = ?, brewery_street_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ?, brewery_website = ?, active = ?" +
                 " WHERE brewery_id = ?";
-//        System.out.println(brewery);
         try {
             jdbcTemplate.update(sql, brewery.getBreweryName(), brewery.getBrewerId(), brewery.getBreweryStreetAddress(), brewery.getBreweryCity(), brewery.getBreweryState(), brewery.getBreweryZipCode(), brewery.getBreweryWebsite(),brewery.isActive(), id);
         } catch (DataAccessException e) {
             throw new BreweryNotFoundException();
         }
-
     }
 
     private Brewery mapRowToBrewery(SqlRowSet results){
         Brewery brewery = new Brewery();
+
         brewery.setId(results.getLong("brewery_id"));
         brewery.setBreweryName(results.getString("brewery_name"));
         brewery.setBrewerId(results.getInt("brewer_id"));
@@ -100,9 +100,8 @@ public class BrewerySqlDAO implements BreweryDAO{
         brewery.setBreweryZipCode(results.getInt("brewery_zip"));
         brewery.setBreweryWebsite(results.getString("brewery_website"));
         brewery.setActive(results.getBoolean("active"));
+
         return brewery;
-
-
     }
 
 }
