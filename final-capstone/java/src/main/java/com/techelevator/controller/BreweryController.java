@@ -43,8 +43,4 @@ public class BreweryController {
         System.out.println(brewery);
         brewerySqlDAO.updateBrewery(brewery, id);
     }
-
-
-
-   //todo find by name
 }
