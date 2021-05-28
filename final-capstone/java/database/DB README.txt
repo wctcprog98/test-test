@@ -4,3 +4,4 @@ TO REBUILD DB RUN SCRIPTS IN THIS ORDER
 - user.sql
 - appUsers.sql
 - breweries.sql
+- beers.sql
