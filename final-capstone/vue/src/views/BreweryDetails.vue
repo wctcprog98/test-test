@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header />
     <brewery-contact v-bind:brewery="this.thisBrewery" />
     <button v-on:click="showUpdateForm()">Update</button>
     <update-brewery-form
@@ -13,6 +14,7 @@
 import BreweryContact from "../components/BreweryContact.vue";
 import UpdateBreweryForm from "../components/UpdateBreweryForm.vue";
 import BreweryService from "@/services/BreweryService";
+import Header from "../components/Header.vue";
 export default {
   data() {
     return {
@@ -20,7 +22,7 @@ export default {
       thisBrewery: {},
     };
   },
-  components: { UpdateBreweryForm, BreweryContact },
+  components: { UpdateBreweryForm, BreweryContact, Header },
   methods: {
     showUpdateForm() {
       this.$store.commit("TOGGLE_UPDATE_BREWERY");
