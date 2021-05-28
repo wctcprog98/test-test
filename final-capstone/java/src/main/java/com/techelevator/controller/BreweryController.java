@@ -4,6 +4,7 @@ import com.techelevator.Exceptions.BreweryNotFoundException;
 import com.techelevator.dao.BrewerySqlDAO;
 import com.techelevator.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,9 +21,10 @@ public class BreweryController {
        return brewerySqlDAO.findAll();
     }
 
+    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path ="/breweries", method = RequestMethod.POST)
-    public Brewery create(@RequestBody Brewery formBrewery) {
-        return brewerySqlDAO.create(formBrewery);
+    public void create(@RequestBody Brewery formBrewery) {
+        brewerySqlDAO.create(formBrewery);
     }
 
     @RequestMapping(path ="/breweries/{id}", method = RequestMethod.GET)
