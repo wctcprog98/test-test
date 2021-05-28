@@ -8,14 +8,16 @@
       </router-link>
       <div class="title">Brewery Finder</div>
       <header-login v-if="$store.state.token == ''" />
+      <user-card v-else />
     </div>
   </div>
 </template>
 
 <script>
 import HeaderLogin from "./HeaderLogin.vue";
+import UserCard from "./UserCard.vue";
 export default {
-  components: { HeaderLogin },
+  components: { HeaderLogin, UserCard },
 };
 </script>
 

@@ -2,7 +2,12 @@
   <div style="overflow-y: scroll" class="BreweryCard">
     <h1>Breweries</h1>
 
-    <new-brewery-form />
+    <new-brewery-form
+      v-if="
+        $store.state.token != '' &&
+        $store.state.user.accountType == 'Administrator'
+      "
+    />
     <brewery-summary
       class="card"
       v-for="brewery in breweries"

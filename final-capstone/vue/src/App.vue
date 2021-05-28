@@ -1,18 +1,7 @@
 
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }" class="text">Home</router-link
-      >&nbsp;|&nbsp;
-      <router-link
-        v-bind:to="{ name: 'logout' }"
-        v-if="$store.state.token != ''"
-        class="text"
-        >Logout</router-link
-      >
-    </div>
     <router-view />
-    <div></div>
   </div>
 </template>
 
@@ -67,6 +56,9 @@ export default {};
   margin: 5px;
 }
 
+.user-info {
+  border: 2px solid black;
+}
 .card:hover {
   color: red;
 }
