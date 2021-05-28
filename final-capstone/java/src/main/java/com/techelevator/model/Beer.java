@@ -13,6 +13,10 @@ public class Beer {
     private String beerImage;
     private boolean active;
 
+    public Beer() {
+
+    }
+
     public Beer(Long id, String beerName, String beerStyle, String beerDescription,
                 BigDecimal beerAbv, Long breweryId, String beerImage) {
         this.id = id;

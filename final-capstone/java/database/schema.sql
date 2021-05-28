@@ -1,12 +1,16 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS news;
+DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS beers;
 DROP TABLE IF EXISTS breweries; 
 DROP TABLE IF EXISTS users;
 
+DROP SEQUENCE IF EXISTS seq_news_id;
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP SEQUENCE IF EXISTS seq_brewery_id;
 DROP SEQUENCE IF EXISTS seq_beer_id;
+DROP SEQUENCE IF EXISTS seq_event_id;
 
 
 CREATE SEQUENCE seq_user_id
@@ -26,6 +30,18 @@ CREATE SEQUENCE seq_beer_id
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;  
+  
+CREATE SEQUENCE seq_event_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
+
+CREATE SEQUENCE seq_news_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;    
 
 
 CREATE TABLE users (
@@ -59,7 +75,27 @@ CREATE TABLE beers (
         beer_description varchar(500) NOT NULL,
         beer_abv numeric,
         brewery_id int NOT NULL,
-        image character varying(255) default null,
+        image varchar(255) default null,
+        active boolean DEFAULT TRUE NOT NULL,
+        CONSTRAINT FK_brewery_id FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
+);
+
+CREATE TABLE events (
+        event_id int DEFAULT nextval('seq_event_id'::regclass) NOT NULL,
+        event_name varchar(75) NOT NULL,
+        event_date DATE NOT NULL,
+        event_time TIME,
+        event_description varchar(500) NOT NULL,
+        brewery_id int NOT NULL,
+        active boolean DEFAULT TRUE NOT NULL,
+        CONSTRAINT FK_brewery_id FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
+);
+
+CREATE TABLE news (
+        news_id int DEFAULT nextval('seq_news_id'::regclass) NOT NULL,
+        news_name varchar(200) NOT NULL,
+        news_body varchar(5000) NOT NULL,
+        brewery_id int NOT NULL,
         active boolean DEFAULT TRUE NOT NULL,
         CONSTRAINT FK_brewery_id FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
 );
