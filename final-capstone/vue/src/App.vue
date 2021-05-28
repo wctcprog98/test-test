@@ -42,12 +42,36 @@ export default {};
   border: 6px solid black;
 }
 
+.flex-container-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.flex-container-card button {
+  height: 20px;
+}
+
 .BreweryCard {
   grid-area: BreweryCard;
   background: #ffd700;
   border-radius: 10px;
   border: 6px solid black;
 }
+
+/* card temp border */
+.card {
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.card:hover {
+  color: red;
+}
+
+/* end of card test */
 
 .MainTop {
   grid-area: MainTop;

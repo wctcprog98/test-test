@@ -1,9 +1,10 @@
 <template>
   <div style="overflow-y: scroll" class="BreweryCard">
-    <h1>cards</h1>
+    <h1>Breweries</h1>
 
     <new-brewery-form />
     <brewery-summary
+      class="card"
       v-for="brewery in breweries"
       v-bind:key="brewery.id"
       v-bind:brewery="brewery"

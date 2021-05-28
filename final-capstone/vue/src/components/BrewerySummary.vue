@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <h2>{{ brewery.breweryName }}</h2>
-    <h2>{{ brewery.breweryCity + "," + brewery.breweryState }}</h2>
+  <div class="flex-container-card">
+    <div>
+      <h2>{{ brewery.breweryName }}</h2>
+      <h2>{{ brewery.breweryCity + "," + brewery.breweryState }}</h2>
+    </div>
+
     <button v-on:click="viewDetails()" v-if="$store.state.token != ''">
       View Details
     </button>
