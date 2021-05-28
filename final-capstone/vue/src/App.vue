@@ -1,10 +1,13 @@
+
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+      <router-link v-bind:to="{ name: 'home' }" class="text">Home</router-link
+      >&nbsp;|&nbsp;
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
+        class="text"
         >Logout</router-link
       >
     </div>
@@ -63,8 +66,15 @@ export default {};
 body {
   background-image: url("./images/background.jpg");
   background-size: cover;
-
   background-repeat: repeat-y;
+  /* ADDITION */
+  font-family: "Papyrus";
+  /* font-family: "Fantasy"; */
+}
+
+/* ADDITION */
+.text {
+  color: white;
 }
 
 img {
@@ -92,7 +102,6 @@ img {
 
   color: #ffd700;
   justify-items: right;
-  font-family: "Bierg", sans-serif;
   border: 5px solid black;
   padding-left: 1%;
   padding-right: -10%;
