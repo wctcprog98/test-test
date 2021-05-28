@@ -1,7 +1,6 @@
 -- ************************************************************************************
 -- This script populates the breweries table with sample data (brewer_id must exist)
 -- ************************************************************************************
-
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Brew Detroit' , 1, '1401 Abbott St', 'Detroit', 'Michigan', 48216, 'http://www.brewdetroit.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Detroit Beer Co' , 2, '1529 Broadway St Ste 100', 'Detroit', 'Michigan', 48226, 'http://www.detroitbeerco.com');
 INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, brewery_state, brewery_zip, brewery_website) VALUES ('Brewery Faisan' , 3, '1087 Beaufait St', 'Detroit', 'Michigan', 48207, 'http://www.breweryfaisan.com');

@@ -59,6 +59,7 @@ CREATE TABLE beers (
         beer_description varchar(500) NOT NULL,
         beer_abv numeric,
         brewery_id int NOT NULL,
+        image character varying(255) default null,
         active boolean DEFAULT TRUE NOT NULL,
         CONSTRAINT FK_brewery_id FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
 );
