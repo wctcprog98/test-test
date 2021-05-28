@@ -57,7 +57,11 @@ export default {};
 }
 
 .user-info {
+  display: flex;
+  flex-direction: column;
   border: 2px solid black;
+  padding: 1.25em;
+  width: 150px;
 }
 .card:hover {
   color: red;

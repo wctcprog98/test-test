@@ -1,8 +1,13 @@
 <template>
   <div class="user-info">
-    <p>{{ $store.state.user.username }}</p>
-    <p>{{ $store.state.user.accountType }}</p>
-    <button v-on:click="logout()">Logout</button>
+    <div>
+      <p>{{ $store.state.user.username }}</p>
+    </div>
+    <div>
+      <p>{{ $store.state.user.accountType }}</p>
+    </div>
+
+    <button v-on:click="logout()" class="logout-btn">Logout</button>
   </div>
 </template>
 
