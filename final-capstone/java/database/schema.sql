@@ -1,16 +1,19 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS news;
-DROP TABLE IF EXISTS events;
-DROP TABLE IF EXISTS beers;
-DROP TABLE IF EXISTS breweries; 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS news cascade;
+DROP TABLE IF EXISTS events cascade;
+DROP TABLE IF EXISTS beers cascade;
+DROP TABLE IF EXISTS breweries cascade; 
+DROP TABLE IF EXISTS users cascade;
+DROP TABLE IF EXISTS reviews cascade;
 
-DROP SEQUENCE IF EXISTS seq_news_id;
+
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP SEQUENCE IF EXISTS seq_brewery_id;
 DROP SEQUENCE IF EXISTS seq_beer_id;
+DROP SEQUENCE IF EXISTS seq_reviews_id;
 DROP SEQUENCE IF EXISTS seq_event_id;
+DROP SEQUENCE IF EXISTS seq_news_id;
 
 
 CREATE SEQUENCE seq_user_id
@@ -30,6 +33,11 @@ CREATE SEQUENCE seq_beer_id
   NO MAXVALUE
   NO MINVALUE
   CACHE 1;  
+CREATE SEQUENCE seq_reviews_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;  
   
 CREATE SEQUENCE seq_event_id
   INCREMENT BY 1
@@ -41,8 +49,8 @@ CREATE SEQUENCE seq_news_id
   INCREMENT BY 1
   NO MAXVALUE
   NO MINVALUE
-  CACHE 1;    
-
+  CACHE 1; 
+  
 
 CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
@@ -77,8 +85,22 @@ CREATE TABLE beers (
         brewery_id int NOT NULL,
         image varchar(255) default null,
         active boolean DEFAULT TRUE NOT NULL,
+        CONSTRAINT PK_beer PRIMARY KEY (beer_id),
         CONSTRAINT FK_brewery_id FOREIGN KEY(brewery_id) REFERENCES breweries(brewery_id)
 );
+CREATE TABLE reviews (
+        reviews_id int DEFAULT nextval('seq_reviews_id'::regclass) NOT NULL,
+        beer_id int,
+        brewer_id int NOT NULL,
+        review_text varchar(5000) NOT NULL,
+        star_rating int,
+        active boolean DEFAULT TRUE NOT NULL,
+        CONSTRAINT PK_reviews_id PRIMARY KEY (reviews_id),
+        CONSTRAINT FK_beer_id FOREIGN KEY(beer_id) REFERENCES beers(beer_id),
+        CONSTRAINT FK_brewer_id FOREIGN KEY(brewer_id) REFERENCES users(user_id)      
+        
+);
+
 
 CREATE TABLE events (
         event_id int DEFAULT nextval('seq_event_id'::regclass) NOT NULL,
