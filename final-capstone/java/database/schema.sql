@@ -56,7 +56,7 @@ CREATE TABLE users (
 
 CREATE TABLE breweries (
 	brewery_id int DEFAULT nextval('seq_brewery_id'::regclass) NOT NULL,
-	brewery_name varchar(50) NOT NULL,
+	brewery_name varchar(100) NOT NULL,
         brewer_id int,
         brewery_street_address varchar,
         brewery_city varchar,
