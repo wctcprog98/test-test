@@ -12,11 +12,11 @@ export default {};
 <style>
 .DashBoard {
   box-sizing: border-box;
-  padding: 25px;
+
   display: grid;
   grid-template-rows: 1fr 5fr 3fr;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 7%;
+  grid-gap: 3%;
   grid-template-areas:
     "Header Header Header"
     "BreweryCard TopRated TopRated"
@@ -26,12 +26,13 @@ export default {};
 .Header {
   grid-area: Header;
   background: #ffd700;
-  height: 120%;
+  height: 350px;
   border-radius: 10px;
   border: 6px solid black;
+  
 }
-
-.flex-container-card {
+/* brewery card on home page */
+.flex-container-card { 
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -52,8 +53,29 @@ export default {};
 .card {
   border: 2px solid black;
   border-radius: 15px;
-  padding: 5px;
-  margin: 5px;
+  padding: 3px;
+  margin: 4%;
+  box-shadow: 3px 2px 14px rgba(white, 0.2);
+  transition: all 200ms ease-in-out;
+  background-color:#a52a2a;
+  color: silver;
+  /* font-size: 20px; */
+
+  /* test */
+}
+
+
+.card:hover{
+  transform: translateY(-1rem);
+  box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
+   color: white;
+   font-weight:bolder;
+   text-decoration: underline;
+   border-bottom: 6px solid black;
+   border-right: 6px solid black;
+   border-top: 0px;
+   border-left: 0px;
+   
 }
 
 .user-info {
@@ -63,9 +85,7 @@ export default {};
   padding: 1.25em;
   width: 150px;
 }
-.card:hover {
-  color: red;
-}
+
 
 /* end of card test */
 
@@ -85,11 +105,13 @@ export default {};
 
 body {
   background-image: url("./images/background.jpg");
-  background-size: cover;
+  background-size:100%;
   background-repeat: repeat-y;
   /* ADDITION */
   font-family: "Papyrus";
+
   /* font-family: "Fantasy"; */
+  
 }
 
 /* ADDITION */
@@ -98,22 +120,28 @@ body {
 }
 
 img {
-  width: 120px;
-  height: 120px;
+  width: 180px;
+  height: 170px;
 
   border-radius: 140%;
 
   border: 5px solid black;
 }
 
+img:hover{
+  border: 6px solid black;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: space-around;
+  align-items: center;
   padding-top: 20px;
   padding-left: 10px;
   background-color: #ffd700;
+  height: 130px;
+  margin-top: 70px;
 }
 
 .title {
@@ -126,23 +154,26 @@ img {
   padding-left: 1%;
   padding-right: -10%;
   border-radius: 10px;
-  background-color: brown;
+  background-color: #a52a2a;
   border-style: ridge;
 }
 
 .form-signin {
-  float: right;
-  background-color: rgb(233, 218, 153);
+  height : auto;
+  width: 250px;
+  float: left;
+  /* background-color: rgb(233, 218, 153); */
+  background-color: rgb(187, 118, 53);
   border: 5px solid black;
   border-radius: 12px;
-  padding: 4%;
+  padding: 3%;
 
-  flex-grow: 1;
 }
 
 .title:hover {
   border: 5px solid yellow;
 }
 @import url("http://fonts.cdnfonts.com/css/biergarten");
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
 </style>
 
