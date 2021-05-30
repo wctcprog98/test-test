@@ -91,7 +91,7 @@ CREATE TABLE beers (
 CREATE TABLE reviews (
         reviews_id int DEFAULT nextval('seq_reviews_id'::regclass) NOT NULL,
         beer_id int,
-        brewer_id int NOT NULL,
+        reviewer_id int NOT NULL,
         review_text varchar(5000) NOT NULL,
         star_rating int,
         active boolean DEFAULT TRUE NOT NULL,
