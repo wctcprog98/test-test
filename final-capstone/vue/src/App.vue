@@ -21,7 +21,7 @@ export default {};
     "Header Header Header"
     "BreweryCard TopRated TopRated"
     "BreweryCard events-list events-list";
-    max-height: 1350px;
+  max-height: 1350px;
 }
 
 .Header {
@@ -32,10 +32,9 @@ export default {};
   height: 350px;
   border-radius: 10px;
   border: 6px solid black;
-  
 }
 /* brewery card on home page */
-.flex-container-card { 
+.flex-container-card {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -54,6 +53,14 @@ export default {};
   max-height: 120vh;
 }
 
+.beer-summary {
+  border: 2px solid black;
+  color: white;
+  font-size: 1.5em;
+  color: gold;
+  padding: 1.5em;
+}
+
 /* card temp border */
 .card {
   border: 2px solid black;
@@ -62,29 +69,27 @@ export default {};
   margin: 4%;
   box-shadow: 3px 2px 14px rgba(white, 0.2);
   transition: all 200ms ease-in-out;
-  background-color:transparent; 
+  background-color: transparent;
   /* beer card */
   color: gold;
-   filter: blur(.7px);
+  filter: blur(0.7px);
   /* font-size: 20px; */
- 
+
   /* test */
 }
 
-
-.card:hover{
+.card:hover {
   transform: translateY(-1rem);
   box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
-   color: gold;
-   font-weight:bolder;
-   font-size: 17px;
-   text-decoration: underline;
-   border-bottom: 6px solid black;
-   border-right: 6px solid black;
-   border-top: 0px;
-   border-left: 0px;
-   filter: blur(0px);
-   
+  color: gold;
+  font-weight: bolder;
+  font-size: 17px;
+  text-decoration: underline;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
 }
 
 .user-info {
@@ -94,7 +99,6 @@ export default {};
   padding: 1.25em;
   width: 150px;
 }
-
 
 /* end of card test */
 
@@ -115,19 +119,16 @@ export default {};
   max-height: 90vh;
   margin-bottom: 14.8%;
   padding-bottom: 10px;
-  
-  
 }
 
 body {
   background-image: url("./images/background.jpg");
-  background-size:110%;
+  background-size: 110%;
   background-repeat: repeat-y;
   /* ADDITION */
   font-family: "Papyrus";
 
   /* font-family: "Fantasy"; */
-  
 }
 
 /* ADDITION */
@@ -144,7 +145,7 @@ img {
   border: 5px solid black;
 }
 
-img:hover{
+img:hover {
   border: 6px solid black;
 }
 
@@ -176,7 +177,7 @@ img:hover{
 }
 
 .form-signin {
-  height : auto;
+  height: auto;
   width: 250px;
   float: left;
   /* background-color: rgb(233, 218, 153); */
@@ -184,17 +185,15 @@ img:hover{
   border: 3px solid black;
   border-radius: 12px;
   padding: 3%;
-
 }
-.brewery-label{
-  color:white;
-  
+.brewery-label {
+  color: white;
 }
 
 .title:hover {
   border: 5px solid yellow;
 }
 @import url("http://fonts.cdnfonts.com/css/biergarten");
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
 </style>
 

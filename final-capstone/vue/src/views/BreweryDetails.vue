@@ -7,6 +7,7 @@
       v-if="this.$store.state.showUpdateBreweryForm"
       v-bind:breweryNumber="breweryId"
     />
+    <brewery-menu v-bind:breweryNumber="breweryId" />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import BreweryContact from "../components/BreweryContact.vue";
 import UpdateBreweryForm from "../components/UpdateBreweryForm.vue";
 import BreweryService from "@/services/BreweryService";
 import Header from "../components/Header.vue";
+import BreweryMenu from "../components/BreweryMenu.vue";
 export default {
   data() {
     return {
@@ -22,7 +24,7 @@ export default {
       thisBrewery: {},
     };
   },
-  components: { UpdateBreweryForm, BreweryContact, Header },
+  components: { UpdateBreweryForm, BreweryContact, Header, BreweryMenu },
   methods: {
     showUpdateForm() {
       this.$store.commit("TOGGLE_UPDATE_BREWERY");
