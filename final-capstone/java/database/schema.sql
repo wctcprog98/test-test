@@ -97,7 +97,7 @@ CREATE TABLE reviews (
         active boolean DEFAULT TRUE NOT NULL,
         CONSTRAINT PK_reviews_id PRIMARY KEY (reviews_id),
         CONSTRAINT FK_beer_id FOREIGN KEY(beer_id) REFERENCES beers(beer_id),
-        CONSTRAINT FK_brewer_id FOREIGN KEY(brewer_id) REFERENCES users(user_id)      
+        CONSTRAINT FK_reviewer_id FOREIGN KEY(reviewer_id) REFERENCES users(user_id)      
         
 );
 
