@@ -1,6 +1,6 @@
 <template>
   <div style="overflow-y: scroll" class="BreweryCard">
-    <h1>Breweries</h1>
+    <h1 class="brewery-label">Breweries</h1>
 
     <new-brewery-form
       v-if="

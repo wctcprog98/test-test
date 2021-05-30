@@ -21,11 +21,14 @@ export default {};
     "Header Header Header"
     "BreweryCard TopRated TopRated"
     "BreweryCard events-list events-list";
+    max-height: 1350px;
 }
 
 .Header {
   grid-area: Header;
-  background: #ffd700;
+  background: transparent;
+  /* 
+   */
   height: 350px;
   border-radius: 10px;
   border: 6px solid black;
@@ -44,9 +47,11 @@ export default {};
 
 .BreweryCard {
   grid-area: BreweryCard;
-  background: #ffd700;
+  background: transparent;
   border-radius: 10px;
   border: 6px solid black;
+  overflow-y: scroll;
+  max-height: 120vh;
 }
 
 /* card temp border */
@@ -57,10 +62,12 @@ export default {};
   margin: 4%;
   box-shadow: 3px 2px 14px rgba(white, 0.2);
   transition: all 200ms ease-in-out;
-  background-color:#a52a2a;
-  color: silver;
+  background-color:transparent; 
+  /* beer card */
+  color: gold;
+   filter: blur(.7px);
   /* font-size: 20px; */
-
+ 
   /* test */
 }
 
@@ -68,13 +75,15 @@ export default {};
 .card:hover{
   transform: translateY(-1rem);
   box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
-   color: white;
+   color: gold;
    font-weight:bolder;
+   font-size: 17px;
    text-decoration: underline;
    border-bottom: 6px solid black;
    border-right: 6px solid black;
    border-top: 0px;
    border-left: 0px;
+   filter: blur(0px);
    
 }
 
@@ -91,21 +100,28 @@ export default {};
 
 .TopRated {
   grid-area: TopRated;
-  background: #ffd700;
+  background: transparent;
   border-radius: 10px;
   border: 6px solid black;
+  max-height: 60vh;
 }
 
 .events-list {
   grid-area: events-list;
-  background: #ffd700;
+  background: transparent;
   border-radius: 10px;
   border: 6px solid black;
+  height: 50vh;
+  max-height: 90vh;
+  margin-bottom: 14.8%;
+  padding-bottom: 10px;
+  
+  
 }
 
 body {
   background-image: url("./images/background.jpg");
-  background-size:100%;
+  background-size:110%;
   background-repeat: repeat-y;
   /* ADDITION */
   font-family: "Papyrus";
@@ -139,7 +155,8 @@ img:hover{
   align-items: center;
   padding-top: 20px;
   padding-left: 10px;
-  background-color: #ffd700;
+  background-color: transparent;
+  /* flexbox in header */
   height: 130px;
   margin-top: 70px;
 }
@@ -163,11 +180,15 @@ img:hover{
   width: 250px;
   float: left;
   /* background-color: rgb(233, 218, 153); */
-  background-color: rgb(187, 118, 53);
-  border: 5px solid black;
+  background-color: rgb(226, 199, 47);
+  border: 3px solid black;
   border-radius: 12px;
   padding: 3%;
 
+}
+.brewery-label{
+  color:white;
+  
 }
 
 .title:hover {
