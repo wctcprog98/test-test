@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 
+import com.techelevator.Exceptions.BeerNotFoundException;
 import com.techelevator.dao.BeerSqlDAO;
 import com.techelevator.model.Beer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +14,35 @@ import java.util.List;
 @CrossOrigin
 public class BeerController {
 
-@Autowired
+    @Autowired
     BeerSqlDAO beerSqlDAO;
 
-//@RequestMapping(path = "/breweries/{id}", method = RequestMethod.GET)
-//    public List<Beer> getAllBeers() {
-//    return beerSqlDAO.findAll();
-//}
+    @RequestMapping(path = "/breweries/{id}/beer", method = RequestMethod.GET)
+    public List<Beer> getAllBeers(@PathVariable Long id) {
+        return beerSqlDAO.findAll(id);
+    }
 
-@ResponseStatus(HttpStatus.CREATED)
-@RequestMapping(path ="/breweries/{id", method = RequestMethod.POST)
-public void create(@RequestBody Beer formBeer) {
-    beerSqlDAO.create(formBeer);
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.POST)
+    public void create(@RequestBody Beer formBeer) {
+        beerSqlDAO.create(formBeer);
+
+    }
+
+    @RequestMapping(path = "/breweries/{id}/beer/{id}", method = RequestMethod.PUT)
+    public void updateBeer(@RequestBody Beer beer, @PathVariable long id) throws BeerNotFoundException {
+        beerSqlDAO.updateBeer(beer, id);
+    }
+
+    @RequestMapping(path = "/breweries/{id}/beer/{id}",method = RequestMethod.DELETE)
+    public void delete(@PathVariable Long id) throws BeerNotFoundException {
+        beerSqlDAO.delete(id);
+    }
+
+    @RequestMapping(path = "/breweries/{id}/beer/{id}", method = RequestMethod.GET)
+    public Beer findById(@PathVariable Long id) throws BeerNotFoundException {
+        return beerSqlDAO.findById(id);
+    }
 }
-}
+
+
