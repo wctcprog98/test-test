@@ -1,5 +1,4 @@
 package com.techelevator.dao;
-
 import com.techelevator.Exceptions.BeerNotFoundException;
 import com.techelevator.model.Beer;
 import org.springframework.dao.DataAccessException;
@@ -7,8 +6,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,17 +29,18 @@ public class BeerSqlDAO implements BeerDAO{
     }
 
     @Override
-    public List<Beer> findAll() {
+    public List<Beer> findAll(long id) {
         List<Beer> beers = new ArrayList<>();
-        String sql = "SELECT * FROM beers";
+        String sql = "SELECT * FROM beers WHERE brewery_id = ?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while(results.next()) {
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        while (results.next()) {
             Beer beer = mapRowToBeer(results);
             beers.add(beer);
         }
         return beers;
     }
+
 
     @Override
     public Beer findById(Long id) throws BeerNotFoundException {
@@ -70,7 +68,7 @@ public class BeerSqlDAO implements BeerDAO{
     }
 
     @Override
-    public void deactivateBeer(Long id) throws BeerNotFoundException {
+    public void delete(Long id) throws BeerNotFoundException {
         String sql = "UPDATE beers SET active = false WHERE beer_id = ?";
         try {
             findById(id);
@@ -85,7 +83,7 @@ public class BeerSqlDAO implements BeerDAO{
         beer.setId(rs.getLong("beer_id"));
         beer.setBeerName(rs.getString("beer_name"));
         beer.setBeerStyle(rs.getString("beer_style"));
-        beer.setBeerDescription("beer_description");
+        beer.setBeerDescription(rs.getString("beer_description"));
         beer.setBeerImage(rs.getString("image"));
         beer.setBeerAbv(rs.getBigDecimal("beer_abv"));
         beer.setBreweryId(rs.getLong("brewery_id"));
