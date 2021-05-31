@@ -1,6 +1,6 @@
 package com.techelevator.controller;
 
-import com.techelevator.Exceptions.ReviewNotFountException;
+import com.techelevator.Exceptions.ReviewNotFoundException;
 import com.techelevator.dao.ReviewSqlDAO;
 import com.techelevator.model.Review;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class ReviewController {
     }
 
     @RequestMapping(path = "/reviews/{id}", method = RequestMethod.GET)
-    public Review findById(@PathVariable Long id) throws ReviewNotFountException {
+    public Review findById(@PathVariable Long id) throws ReviewNotFoundException {
         return reviewSqlDAO.findById(id);
     }
 
@@ -38,12 +38,12 @@ public class ReviewController {
     }
 
     @RequestMapping(path = "/reviews/{id}", method = RequestMethod.PUT)
-    public void updateReview(@RequestBody Review review, @PathVariable Long id) throws ReviewNotFountException {
+    public void updateReview(@RequestBody Review review, @PathVariable Long id) throws ReviewNotFoundException {
         reviewSqlDAO.update(review, id);
     }
 
     @RequestMapping(path = "/reviews/{id}", method = RequestMethod.DELETE)
-    public void deactivateReview(@PathVariable Long id) throws ReviewNotFountException {
+    public void deactivateReview(@PathVariable Long id) throws ReviewNotFoundException {
         reviewSqlDAO.deactivate(id);
     }
 

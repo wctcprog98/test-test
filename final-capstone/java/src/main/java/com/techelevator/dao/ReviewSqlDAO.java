@@ -1,6 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.Exceptions.ReviewNotFountException;
+import com.techelevator.Exceptions.ReviewNotFoundException;
 import com.techelevator.model.Review;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -62,7 +62,7 @@ public class ReviewSqlDAO implements ReviewDAO {
     }
 
     @Override
-    public Review findById(Long reviewId) throws ReviewNotFountException {
+    public Review findById(Long reviewId) throws ReviewNotFoundException {
         String sql  = "SELECT * FROM reviews WHERE reviews_id = ?";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, reviewId);
@@ -71,11 +71,11 @@ public class ReviewSqlDAO implements ReviewDAO {
             return mapRowToReview(result);
         }
 
-        throw new ReviewNotFountException();
+        throw new ReviewNotFoundException();
     }
 
     @Override
-    public void update(Review review, Long reviewId) throws ReviewNotFountException {
+    public void update(Review review, Long reviewId) throws ReviewNotFoundException {
         String sql = "UPDATE reviews SET beer_id = ?, reviewer_id = ?, review_text = ?, star_rating = ?, active = ?" +
                      "WHERE reviews_id = ?";
 
@@ -83,18 +83,18 @@ public class ReviewSqlDAO implements ReviewDAO {
             jdbcTemplate.update(sql, review.getBeerId(), review.getReviewerId(),
                                      review.getReviewText(), review.getStarRating(), review.isActive(), reviewId);
         } catch (DataAccessException e) {
-            throw new ReviewNotFountException();
+            throw new ReviewNotFoundException();
         }
     }
 
     @Override
-    public void deactivate(Long reviewId) throws ReviewNotFountException {
+    public void deactivate(Long reviewId) throws ReviewNotFoundException {
         String sql = "UPDATE reviews SET active = false WHERE reviews_id = ?";
 
         try {
             jdbcTemplate.update(sql, reviewId);
         } catch (DataAccessException e) {
-            throw new ReviewNotFountException();
+            throw new ReviewNotFoundException();
         }
     }
 
