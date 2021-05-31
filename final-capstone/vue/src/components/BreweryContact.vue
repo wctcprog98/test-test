@@ -26,7 +26,5 @@ export default {
 </script>
 
 <style>
-.contact {
-  background-color: white;
-}
+
 </style>

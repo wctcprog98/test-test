@@ -1,7 +1,8 @@
 <template>
   <div class="user-info">
+    <div class="welcomeback">Welcome back,</div>
     <div>
-      <p>{{ $store.state.user.username }}</p>
+      <p class="checkmark"> {{ $store.state.user.username }}! </p>
     </div>
     <div>
       <p>{{ $store.state.user.accountType }}</p>
@@ -26,4 +27,14 @@ export default {
 </script>
 
 <style>
+.welcomeback{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.checkmark{
+  height: 1px;
+  width: 1px;
+}
+
 </style>

@@ -31,13 +31,16 @@ export default {};
    */
   height: 350px;
   border-radius: 10px;
-  border: 6px solid black;
+  border: 0px solid black;
+  
+
 }
 /* brewery card on home page */
 .flex-container-card {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+ 
 }
 
 .flex-container-card button {
@@ -48,9 +51,11 @@ export default {};
   grid-area: BreweryCard;
   background: transparent;
   border-radius: 10px;
-  border: 6px solid black;
+ 
+  border: 0px solid whitesmoke;
   overflow-y: scroll;
   max-height: 120vh;
+  
 }
 
 .beer-summary {
@@ -69,9 +74,13 @@ export default {};
   margin: 4%;
   box-shadow: 3px 2px 14px rgba(white, 0.2);
   transition: all 200ms ease-in-out;
-  background-color: transparent;
+  background-color: white;
+
+  
+  
   /* beer card */
-  color: gold;
+   opacity: 50%;
+  color: rgb(8, 8, 4);
   filter: blur(0.7px);
   /* font-size: 20px; */
 
@@ -81,23 +90,30 @@ export default {};
 .card:hover {
   transform: translateY(-1rem);
   box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
-  color: gold;
+  color: rgb(8, 8, 4);
   font-weight: bolder;
   font-size: 17px;
-  text-decoration: underline;
+
   border-bottom: 6px solid black;
   border-right: 6px solid black;
   border-top: 0px;
   border-left: 0px;
   filter: blur(0px);
+  opacity: 90%;
+  
 }
 
 .user-info {
   display: flex;
   flex-direction: column;
   border: 2px solid black;
-  padding: 1.25em;
+  padding: 2.25em;
   width: 150px;
+  background-color: white;
+  border-radius: 129%;
+  opacity: 90%;
+
+  
 }
 
 /* end of card test */
@@ -106,7 +122,7 @@ export default {};
   grid-area: TopRated;
   background: transparent;
   border-radius: 10px;
-  border: 6px solid black;
+  border: 1px solid white;
   max-height: 60vh;
 }
 
@@ -165,15 +181,30 @@ img:hover {
 .title {
   font: bold;
   font-size: 100px;
-
-  color: #ffd700;
+background-size: cover;
+  color: goldenrod;
   justify-items: right;
-  border: 5px solid black;
+  border: 1px solid ;
   padding-left: 1%;
   padding-right: -10%;
   border-radius: 10px;
   background-color: #a52a2a;
-  border-style: ridge;
+  background-color: transparent;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1s;
+  background-image: url('https://media0.giphy.com/media/Io8AIWZ7TslmZwewM9/giphy.gif?cid=ecf05e47fhr8nii8s8ga3nymc45vdgcgr0uag3i8wneka4tz&rid=giphy.gif&ct=g');
+  ;
+}
+.title:hover {
+  
+  color:black;
+    background-image: url('https://media0.giphy.com/media/Io8AIWZ7TslmZwewM9/giphy.gif?cid=ecf05e47fhr8nii8s8ga3nymc45vdgcgr0uag3i8wneka4tz&rid=giphy.gif&ct=g');
+    background-size: cover;
+  
+    height: fit-content;
+    padding:0;
+    margin:0;
+
 }
 
 .form-signin {
@@ -181,18 +212,65 @@ img:hover {
   width: 250px;
   float: left;
   /* background-color: rgb(233, 218, 153); */
-  background-color: rgb(226, 199, 47);
+  background-color: rgb(247, 243, 240) ;
   border: 3px solid black;
   border-radius: 12px;
   padding: 3%;
+  opacity: 90%;
+
+}
+
+
+.form-signin:hover{
+opacity: 100%;
 }
 .brewery-label {
   color: white;
 }
+.form-register{
+  
+  height: auto;
+  width: 250px;
+  
+  /* background-color: rgb(233, 218, 153); */
+  background-color: rgb(247, 243, 240) ;
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: 3%;
+  opacity: 90%;
 
-.title:hover {
-  border: 5px solid yellow;
+  left: 50%;
+    top: 50%;
+    margin-left: -25%;
+    position: absolute;
+    margin-top: -13%;
 }
+
+.form-register:hover{
+opacity: 100%;
+}
+/* contact card css */
+.contact {
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: white;
+  font-weight: bolder;
+  font-size: 17px;
+ padding-left: 3%;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
+  opacity: 90%;
+  margin-right: 33%;
+}
+.contact h2{
+  text-decoration: underline;
+  font-size: 40px;
+}
+
+
 @import url("http://fonts.cdnfonts.com/css/biergarten");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
 </style>
