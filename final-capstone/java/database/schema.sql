@@ -93,7 +93,7 @@ CREATE TABLE reviews (
         beer_id int,
         reviewer_id int NOT NULL,
         review_text varchar(5000) NOT NULL,
-        star_rating INT,
+        star_rating numeric,
         active boolean DEFAULT TRUE NOT NULL,
         CONSTRAINT PK_reviews_id PRIMARY KEY (reviews_id),
         CONSTRAINT FK_beer_id FOREIGN KEY(beer_id) REFERENCES beers(beer_id),
