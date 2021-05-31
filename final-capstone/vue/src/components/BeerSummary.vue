@@ -9,7 +9,7 @@
         ><div class="beer-name">{{ beer.beerName }}</div></a
       >
       <div class="beer-style">{{ beer.beerStyle }}</div>
-      <div class="beer-abv">{{ beer.beerAbv }}</div>
+      <div class="beer-abv">{{ beer.beerAbv + "%" }}</div>
       <div v-if="!isHidden" class="beer-description">
         <span>Description:</span>
         {{ beer.beerDescription }}
