@@ -22,7 +22,7 @@ public class ReviewController {
         reviewSqlDAO.create(review);
     }
 
-    @RequestMapping(path = "reviews/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/reviews/{id}", method = RequestMethod.GET)
     public Review findById(@PathVariable Long id) throws ReviewNotFountException {
         return reviewSqlDAO.findById(id);
     }
@@ -32,17 +32,17 @@ public class ReviewController {
         return reviewSqlDAO.listByBreweryId(id);
     }
 
-    @RequestMapping(path = "beer/{id}/reviews", method = RequestMethod.GET)
+    @RequestMapping(path = "/beer/{id}/reviews", method = RequestMethod.GET)
     public List<Review> listByBeerId(@PathVariable Long id) {
         return reviewSqlDAO.listByBeerId(id);
     }
 
-    @RequestMapping(path = "reviews/{id}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/reviews/{id}", method = RequestMethod.PUT)
     public void updateReview(@RequestBody Review review, @PathVariable Long id) throws ReviewNotFountException {
         reviewSqlDAO.update(review, id);
     }
 
-    @RequestMapping(path = "reviews/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(path = "/reviews/{id}", method = RequestMethod.DELETE)
     public void deactivateReview(@PathVariable Long id) throws ReviewNotFountException {
         reviewSqlDAO.deactivate(id);
     }

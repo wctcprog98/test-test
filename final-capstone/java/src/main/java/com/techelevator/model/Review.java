@@ -9,7 +9,6 @@ public class Review {
     private int starRating;
     private boolean active;
 
-
     public Review() {
     }
 
