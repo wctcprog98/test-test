@@ -1,14 +1,19 @@
 <template>
-  <div class="flex-container-card">
+  <div
+    class="flex-container-card"
+    @mouseover="showButtons = true"
+    @mouseleave="showButtons = false"
+  >
     <div>
       <h2>{{ brewery.breweryName }}</h2>
       <h2>{{ brewery.breweryCity + "," + brewery.breweryState }}</h2>
     </div>
-
-    <button v-on:click="viewDetails()" v-if="$store.state.token != ''">
-      View Details
-    </button>
-    <button v-else v-on:click="scrollToTop()">Log in View Details</button>
+    <div v-show="showButtons">
+      <button v-on:click="viewDetails()" v-if="$store.state.token != ''">
+        View Details
+      </button>
+      <button v-else v-on:click="scrollToTop()">Log in View Details</button>
+    </div>
   </div>
 </template>
 
@@ -17,6 +22,11 @@
 export default {
   props: {
     brewery: Object,
+  },
+  data() {
+    return {
+      showButtons: false,
+    };
   },
   methods: {
     viewDetails() {

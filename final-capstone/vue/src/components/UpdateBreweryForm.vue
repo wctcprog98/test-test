@@ -52,6 +52,8 @@
       />
       <button>Update Brewery</button>
     </form>
+    <button v-on:click.prevent="cancel()">Cancel</button>
+    <button v-on:click.prevent="deactivate()">Delete</button>
   </div>
 </template>
 
@@ -71,7 +73,6 @@ export default {
   },
   methods: {
     updateBrewery() {
-      console.log(this.breweryToUpdate);
       const brewery = {
         breweryName: this.breweryToUpdate.breweryName,
         brewerId: this.breweryToUpdate.brewerId,
@@ -82,10 +83,20 @@ export default {
         breweryWebsite: this.breweryToUpdate.breweryWebsite,
         active: this.breweryToUpdate.active,
       };
-      console.log(brewery);
       breweryService.update(brewery, this.breweryNumber).then((response) => {
         if (response.status === 200) {
           this.$store.commit("TOGGLE_UPDATE_BREWERY");
+        }
+      });
+    },
+    cancel() {
+      this.breweryToUpdate = {};
+      this.$store.commit("TOGGLE_UPDATE_BREWERY");
+    },
+    deactivate() {
+      breweryService.delete(this.breweryNumber).then((response) => {
+        if (response.status === 200) {
+          this.$router.push({ name: "home" });
         }
       });
     },
@@ -94,7 +105,7 @@ export default {
 </script>
 
 <style>
-.update-form{
+.update-form {
   /* margin-left:10%; */
   border: 2px solid black;
   border-radius: 15px;
@@ -102,7 +113,7 @@ export default {
   font-weight: bolder;
   font-size: 17px;
   padding: 1%;
- padding-left: 3%;
+  padding-left: 3%;
   border-bottom: 6px solid black;
   border-right: 6px solid black;
   border-top: 0px;
@@ -110,7 +121,5 @@ export default {
   filter: blur(0px);
   opacity: 90%;
   width: 500px;
-
 }
-
 </style>

@@ -43,6 +43,9 @@ export default new Vuex.Store({
     TOGGLE_UPDATE_BREWERY(state) {
       state.showUpdateBreweryForm = !state.showUpdateBreweryForm;
     },
+    FALSE_UPDATE_BREWERY(state) {
+      state.showUpdateBreweryForm = false;
+    },
     SET_BREWERIES(state, breweries) {
       state.breweries = breweries;
     },
