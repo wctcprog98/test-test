@@ -1,14 +1,14 @@
 <template>
   <div class="reviews">
     <h2>REVIEWS</h2>
-    {{ averageRating }}
+   <h6> Average Rating:    | {{ averageRating }}| </h6> 
     <p
       v-for="review in reviews"
       v-bind:key="review.id"
       v-bind:review="review"
-      class="reviews"
+      class="reviews1"
     >
-      {{ review.reviewText }}
+       - {{ review.reviewText}}
     </p>
   </div>
 </template>
@@ -31,4 +31,25 @@ export default {
 </script>
 
 <style>
+.reviews{
+  opacity: 100%;
+}
+
+.reviews1{
+  font-size: 25px;
+  background:  transparent;
+  background-color: white;
+  opacity: 90%;
+  color: black;
+  padding: 2%;
+  font-weight:bolder;
+
+
+  border-radius: 20px;
+  
+}
+h6{
+  color:gold;
+  font-weight: bolder;
+}
 </style>

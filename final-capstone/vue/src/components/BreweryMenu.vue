@@ -1,6 +1,6 @@
 <template>
   <div class="beer-menu">
-    <h1>Menu</h1>
+    <h1 class="menu-title">Menu</h1>
     <beer-summary
       v-for="beer in allBeers"
       v-bind:key="beer.id"
@@ -32,4 +32,7 @@ export default {
 </script>
 
 <style>
+.menu-title{
+  color:white;
+}
 </style>

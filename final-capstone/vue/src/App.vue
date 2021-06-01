@@ -56,11 +56,12 @@ export default {};
 
 .beer-summary {
   grid-area: beer-summary;
-  border: 2px solid black;
+  /* border: 2px solid white; */
   color: white;
   font-size: 1.5em;
   color: gold;
-  padding: 1.5em;
+ 
+
 }
 
 .beer-name-link {
@@ -160,6 +161,7 @@ export default {};
   filter: blur(0px);
   opacity: 90%;
   width: 500px;
+  margin-left: 40px;
 }
 
 body {
@@ -214,7 +216,7 @@ img:hover {
   font: bold;
   font-size: 100px;
   background-size: cover;
-  color: goldenrod;
+  color: rgb(122, 105, 28);
   justify-items: right;
   border: 1px solid;
   padding-left: 1%;
@@ -293,11 +295,21 @@ img:hover {
   filter: blur(0px);
   opacity: 90%;
   margin-right: 33%;
+  margin-left: 3%
 }
 .contact h2 {
   text-decoration: underline;
   font-size: 40px;
 }
+
+.beer-menu{ 
+  
+  margin: 1%;
+  padding: 3%;
+  
+
+}
+
 
 @import url("http://fonts.cdnfonts.com/css/biergarten");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
