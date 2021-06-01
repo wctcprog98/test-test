@@ -5,8 +5,8 @@ const http = axios.create({
 })
 
 export default {
-    listAll(breweryId) {
-        return http.get(`/breweries/${breweryId}/event`)
+    listByBreweryId(breweryId) {
+        return http.get(`/breweries/${breweryId}/events`)
     },
     create(breweryId, event) {
         return http.post(`/breweries/${breweryId}/event`, event)
@@ -16,8 +16,6 @@ export default {
     },
     update(breweryId, eventId, event) {
         return http.put(`/breweries/${breweryId}/event/${eventId}`, event)
-    },
-    get(breweryId, eventId) {
-        return http.get(`/breweries/${breweryId}/event/${eventId}`)
     }
+
 }

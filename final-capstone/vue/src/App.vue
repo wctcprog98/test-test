@@ -55,6 +55,7 @@ export default {};
 }
 
 .beer-summary {
+  grid-area: beer-summary;
   border: 2px solid black;
   color: white;
   font-size: 1.5em;
@@ -112,13 +113,17 @@ export default {};
   opacity: 90%;
 }
 
+.reviews {
+  font-size: 1.5em;
+}
+
 /* end of card test */
 
 .TopRated {
   grid-area: TopRated;
   background: transparent;
   border-radius: 10px;
-  border: 1px solid white;
+  border: 6px solid black;
   max-height: 60vh;
 }
 
@@ -131,6 +136,30 @@ export default {};
   max-height: 90vh;
   margin-bottom: 14.8%;
   padding-bottom: 10px;
+  font-size: 1.75em;
+  padding: 45px;
+}
+
+.events {
+  color: gold;
+}
+
+.update-form {
+  /* margin-left:10%; */
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(247, 221, 104);
+  font-weight: bolder;
+  font-size: 17px;
+  padding: 1%;
+  padding-left: 3%;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
+  opacity: 90%;
+  width: 500px;
 }
 
 body {
@@ -143,6 +172,12 @@ body {
 
   /* font-family: "Fantasy"; */
 }
+
+/* form {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+} */
 
 /* ADDITION */
 .text {
@@ -201,6 +236,9 @@ img:hover {
   margin: 0;
 }
 
+.reviews {
+  color: gold;
+}
 .form-signin {
   height: auto;
   width: 250px;

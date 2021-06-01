@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="beer-menu">
     <h1>Menu</h1>
     <beer-summary
       v-for="beer in allBeers"

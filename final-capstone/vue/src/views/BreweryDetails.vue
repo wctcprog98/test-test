@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="menu-container">
     <Header />
     <brewery-contact v-bind:brewery="this.thisBrewery" />
     <button v-on:click="showUpdateForm()">Update</button>
@@ -7,7 +7,9 @@
       v-if="this.$store.state.showUpdateBreweryForm"
       v-bind:breweryNumber="breweryId"
     />
-    <brewery-menu v-bind:breweryNumber="breweryId" />
+    <div class="menu">
+      <brewery-menu v-bind:breweryNumber="breweryId" />
+    </div>
   </div>
 </template>
 
@@ -24,7 +26,12 @@ export default {
       thisBrewery: {},
     };
   },
-  components: { UpdateBreweryForm, BreweryContact, Header, BreweryMenu },
+  components: {
+    UpdateBreweryForm,
+    BreweryContact,
+    Header,
+    BreweryMenu,
+  },
   methods: {
     showUpdateForm() {
       this.$store.commit("TOGGLE_UPDATE_BREWERY");

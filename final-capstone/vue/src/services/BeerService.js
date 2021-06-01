@@ -8,17 +8,17 @@ export default {
     listAll(breweryId) {
         return http.get(`/breweries/${breweryId}/beer`)
     },
-    create(breweryId, beer) {
-        return http.post(`/breweries/${breweryId}/beer`, beer)
+    create(beer) {
+        return http.post(`/beer`, beer)
     },
-    delete(breweryId, beerId) {
-        return http.delete(`/breweries/${breweryId}/beer/${beerId}`)
+    delete(beerId) {
+        return http.delete(`/beer/${beerId}`)
     },
-    update(breweryId, beerId, beer) {
-        return http.put(`/breweries/${breweryId}/beer/${beerId}`, beer)
+    update(beerId, beer) {
+        return http.put(`/beer/${beerId}`, beer)
     },
-    get(breweryId, beerId) {
-        return http.get(`/breweries/${breweryId}/beer/${beerId}`)
+    get(beerId) {
+        return http.get(`/beer/${beerId}`)
     }
 
 }
