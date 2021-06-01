@@ -23,23 +23,22 @@ public class BeerController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.POST)
+    @RequestMapping(path = "/beer", method = RequestMethod.POST)
     public void create(@RequestBody Beer formBeer) {
         beerSqlDAO.create(formBeer);
-
     }
 
-    @RequestMapping(path = "/breweries/{id}/beer/{id}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/beer/{id}", method = RequestMethod.PUT)
     public void updateBeer(@RequestBody Beer beer, @PathVariable long id) throws BeerNotFoundException {
         beerSqlDAO.updateBeer(beer, id);
     }
 
-    @RequestMapping(path = "/breweries/{id}/beer/{id}",method = RequestMethod.DELETE)
+    @RequestMapping(path = "/beer/{id}",method = RequestMethod.DELETE)
     public void delete(@PathVariable Long id) throws BeerNotFoundException {
         beerSqlDAO.delete(id);
     }
 
-    @RequestMapping(path = "/breweries/{id}/beer/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/beer/{id}", method = RequestMethod.GET)
     public Beer findById(@PathVariable Long id) throws BeerNotFoundException {
         return beerSqlDAO.findById(id);
     }
