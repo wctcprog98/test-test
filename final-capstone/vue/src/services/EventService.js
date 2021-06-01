@@ -8,14 +8,20 @@ export default {
     listByBreweryId(breweryId) {
         return http.get(`/breweries/${breweryId}/events`)
     },
-    create(breweryId, event) {
-        return http.post(`/breweries/${breweryId}/event`, event)
+    listUpComing() {
+        return http.get(`/events`)
     },
-    delete(breweryId, eventId) {
-        return http.delete(`/breweries/${breweryId}/event/${eventId}`)
+    findById(id) {
+        return http.get(`/events/${id}`)
     },
-    update(breweryId, eventId, event) {
-        return http.put(`/breweries/${breweryId}/event/${eventId}`, event)
+    create(id, event) {
+        return http.post(`/events/${id}`, event)
+    },
+    delete(id) {
+        return http.delete(`/events/${id}`)
+    },
+    update(id, event) {
+        return http.put(`/events/${id}`, event)
     }
 
 }

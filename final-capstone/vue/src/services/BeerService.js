@@ -5,7 +5,7 @@ const http = axios.create({
 })
 // check to see if this is the path we want everything to happen at. 
 export default {
-    listAll(breweryId) {
+    listByBreweryId(breweryId) {
         return http.get(`/breweries/${breweryId}/beer`)
     },
     create(beer) {

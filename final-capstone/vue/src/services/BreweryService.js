@@ -6,8 +6,7 @@ const http = axios.create({
 
 export default {
     list() {
-
-        return http.get('/')
+        return http.get('/breweries')
     },
     create(brewery) {
         return http.post('/breweries', brewery)

@@ -24,7 +24,7 @@ export default {
     };
   },
   created() {
-    BeerService.listAll(this.breweryNumber).then((response) => {
+    BeerService.listByBreweryId(this.breweryNumber).then((response) => {
       this.allBeers = response.data;
     });
   },
