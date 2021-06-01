@@ -11,20 +11,20 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-
 public class BreweryController {
+
     @Autowired
     BrewerySqlDAO brewerySqlDAO;
-
-    @RequestMapping(path = "/", method = RequestMethod.GET)
-    public List<Brewery> getAllBreweries() {
-       return brewerySqlDAO.findAll();
-    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path ="/breweries", method = RequestMethod.POST)
     public void create(@RequestBody Brewery formBrewery) {
         brewerySqlDAO.create(formBrewery);
+    }
+
+    @RequestMapping(path = "/breweries", method = RequestMethod.GET)
+    public List<Brewery> listAll() {
+       return brewerySqlDAO.listAll();
     }
 
     @RequestMapping(path ="/breweries/{id}", method = RequestMethod.GET)
@@ -33,14 +33,14 @@ public class BreweryController {
         return brewerySqlDAO.findById(id);
     }
 
-    @RequestMapping(path ="/breweries/{id}", method = RequestMethod.DELETE)
-    public void deactivateBrewery(@PathVariable Long id) throws BreweryNotFoundException {
-        brewerySqlDAO.deactivateBrewery(id);
+    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.PUT)
+    public void update(@RequestBody Brewery brewery, @PathVariable Long id) throws BreweryNotFoundException {
+        System.out.println(brewery);
+        brewerySqlDAO.update(brewery, id);
     }
 
-    @RequestMapping(path = "/breweries/{id}", method = RequestMethod.PUT)
-    public void updateBrewery(@RequestBody Brewery brewery, @PathVariable Long id) throws BreweryNotFoundException {
-        System.out.println(brewery);
-        brewerySqlDAO.updateBrewery(brewery, id);
+    @RequestMapping(path ="/breweries/{id}", method = RequestMethod.DELETE)
+    public void deactivate(@PathVariable Long id) throws BreweryNotFoundException {
+        brewerySqlDAO.deactivate(id);
     }
 }

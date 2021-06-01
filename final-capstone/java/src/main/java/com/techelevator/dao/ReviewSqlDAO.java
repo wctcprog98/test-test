@@ -33,9 +33,11 @@ public class ReviewSqlDAO implements ReviewDAO {
     @Override
     public List<Review> listByBreweryId(Long breweryId) {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT * FROM reviews JOIN beers ON reviews.beer_id = beers.beer_id " +
-                                            "JOIN breweries ON beers.brewery_id = breweries.brewery_id " +
-                                            "WHERE breweries.brewery_id = ?";
+        String sql = "SELECT reviews_id, beer_id, reviewer_id, review_text, star_rating, active " +
+                     "FROM reviews JOIN beers ON reviews.beer_id = beers.beer_id " +
+                                  "JOIN breweries ON beers.brewery_id = breweries.brewery_id " +
+                                  "WHERE breweries.brewery_id = ? AND reviews.active = true";
+
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
 
         while (results.next()) {
@@ -49,7 +51,8 @@ public class ReviewSqlDAO implements ReviewDAO {
     @Override
     public List<Review> listByBeerId(Long beerId){
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT * FROM reviews WHERE beer_id = ?";
+        String sql = "SELECT reviews_id, beer_id, reviewer_id, review_text, star_rating, active " +
+                     "FROM reviews WHERE beer_id = ? AND active = true";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, beerId);
 
@@ -63,7 +66,8 @@ public class ReviewSqlDAO implements ReviewDAO {
 
     @Override
     public Review findById(Long reviewId) throws ReviewNotFoundException {
-        String sql  = "SELECT * FROM reviews WHERE reviews_id = ?";
+        String sql  = "SELECT reviews_id, beer_id, reviewer_id, review_text, star_rating, active " +
+                      "FROM reviews WHERE reviews_id = ? AND active = true";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, reviewId);
 
