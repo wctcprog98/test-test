@@ -38,14 +38,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    // {
-    //   path: "/login",
-    //   name: "login",
-    //   component: Login,
-    //   meta: {
-    //     requiresAuth: false
-    //   }
-    // },
     {
       path: "/logout",
       name: "logout",
@@ -62,6 +54,10 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "*",
+      component: Home,
+    }
   ]
 })
 
@@ -71,7 +67,7 @@ router.beforeEach((to, from, next) => {
 
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
-    next("/login");
+    next("/");
   } else {
     // Else let them go to their next destination
     next();
