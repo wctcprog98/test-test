@@ -1,18 +1,20 @@
 package com.techelevator.model;
 
+import java.math.BigDecimal;
+
 public class Review {
 
     private Long id;
     private Long beerId;
     private Long reviewerId;
     private String reviewText;
-    private int starRating;
+    private BigDecimal starRating;
     private boolean active;
 
     public Review() {
     }
 
-    public Review(Long id, Long beerId, Long reviewerId, String reviewText, int starRating) {
+    public Review(Long id, Long beerId, Long reviewerId, String reviewText, BigDecimal starRating) {
         this.id = id;
         this.beerId = beerId;
         this.reviewerId = reviewerId;
@@ -53,11 +55,11 @@ public class Review {
         this.reviewText = reviewText;
     }
 
-    public int getStarRating() {
+    public BigDecimal getStarRating() {
         return starRating;
     }
 
-    public void setStarRating(int starRating) {
+    public void setStarRating(BigDecimal starRating) {
         this.starRating = starRating;
     }
 

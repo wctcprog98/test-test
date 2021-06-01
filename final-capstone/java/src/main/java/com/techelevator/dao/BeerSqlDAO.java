@@ -25,13 +25,15 @@ public class BeerSqlDAO implements BeerDAO{
        String sql = "INSERT INTO beers (beer_name, beer_style, beer_description, image, beer_abv, brewery_id) " +
                " VALUES (?, ?, ?, ?, ?, ?)";
 
-       jdbcTemplate.update(sql, beerToAdd.getBeerName(), beerToAdd.getBeerStyle(), beerToAdd.getBeerDescription(), beerToAdd.getBeerImage(), beerToAdd.getBeerAbv(), beerToAdd.getBreweryId());
+       jdbcTemplate.update(sql, beerToAdd.getBeerName(), beerToAdd.getBeerStyle(), beerToAdd.getBeerDescription(),
+                                beerToAdd.getBeerImage(), beerToAdd.getBeerAbv(), beerToAdd.getBreweryId());
     }
 
     @Override
-    public List<Beer> findAll(long id) {
+    public List<Beer> listByBreweryId(long id) {
         List<Beer> beers = new ArrayList<>();
-        String sql = "SELECT * FROM beers WHERE brewery_id = ?";
+        String sql = "SELECT beer_id, beer_name, beer_style, beer_description, image, beer_abv, brewery_id, active " +
+                     "FROM beers WHERE brewery_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
         while (results.next()) {
@@ -41,16 +43,14 @@ public class BeerSqlDAO implements BeerDAO{
         return beers;
     }
 
-
     @Override
     public Beer findById(Long id) throws BeerNotFoundException {
-        String sql = "Select * FROM beers WHERE beer_id = ?";
+        String sql = "Select beer_id, beer_name, beer_style, beer_description, image, beer_abv, brewery_id, active " +
+                     "FROM beers WHERE beer_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
 
         if(results.next()) {
-
-            System.out.println(mapRowToBeer(results));
             return mapRowToBeer(results);
         }
         throw new BeerNotFoundException();
@@ -58,7 +58,7 @@ public class BeerSqlDAO implements BeerDAO{
     }
 
     @Override
-    public void updateBeer(Beer beer, Long id) throws BeerNotFoundException {
+    public void update(Beer beer, Long id) throws BeerNotFoundException {
         String sql = "UPDATE beers SET beer_name = ?, beer_style = ?, beer_description = ?, image = ?, beer_abv = ?, brewery_id = ?";
         try {
             jdbcTemplate.update(sql, beer.getBeerName(), beer.getBeerStyle(), beer.getBeerDescription(), beer.getBeerImage(), beer.getBeerAbv(), beer.getBreweryId());
@@ -88,7 +88,6 @@ public class BeerSqlDAO implements BeerDAO{
         beer.setBeerAbv(rs.getBigDecimal("beer_abv"));
         beer.setBreweryId(rs.getLong("brewery_id"));
         beer.setActive(rs.getBoolean("active"));
-
 
         return beer;
     }

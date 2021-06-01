@@ -105,7 +105,7 @@ public class ReviewSqlDAO implements ReviewDAO {
         review.setBeerId(results.getLong("beer_id"));
         review.setReviewerId(results.getLong("reviewer_id"));
         review.setReviewText(results.getString("review_text"));
-        review.setStarRating(results.getInt("star_rating"));
+        review.setStarRating(results.getBigDecimal("star_rating"));
         review.setActive(results.getBoolean("active"));
 
         return review;
