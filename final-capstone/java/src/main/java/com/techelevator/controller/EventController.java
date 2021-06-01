@@ -22,6 +22,11 @@ public class EventController {
         eventSqlDAO.create(event);
     }
 
+    @RequestMapping(path = "/events", method = RequestMethod.GET)
+    public List<Event> listUpcoming() {
+        return eventSqlDAO.listUpcoming();
+    }
+
     @RequestMapping(path = "/breweries/{id}/events", method = RequestMethod.GET)
     public List<Event> listByBreweryId(@PathVariable Long id) {
         return eventSqlDAO.listByBreweryId(id);

@@ -1,6 +1,5 @@
 package com.techelevator.controller;
 
-
 import com.techelevator.Exceptions.BeerNotFoundException;
 import com.techelevator.dao.BeerSqlDAO;
 import com.techelevator.model.Beer;
@@ -28,19 +27,19 @@ public class BeerController {
         return beerSqlDAO.listByBreweryId(id);
     }
 
+    @RequestMapping(path = "/beer/{id}", method = RequestMethod.GET)
+    public Beer findById(@PathVariable Long id) throws BeerNotFoundException {
+        return beerSqlDAO.findById(id);
+    }
+
     @RequestMapping(path = "/beer/{id}", method = RequestMethod.PUT)
     public void update(@RequestBody Beer beer, @PathVariable long id) throws BeerNotFoundException {
         beerSqlDAO.update(beer, id);
     }
 
     @RequestMapping(path = "/beer/{id}",method = RequestMethod.DELETE)
-    public void delete(@PathVariable Long id) throws BeerNotFoundException {
-        beerSqlDAO.delete(id);
-    }
-
-    @RequestMapping(path = "/beer/{id}", method = RequestMethod.GET)
-    public Beer findById(@PathVariable Long id) throws BeerNotFoundException {
-        return beerSqlDAO.findById(id);
+    public void deactivate(@PathVariable Long id) throws BeerNotFoundException {
+        beerSqlDAO.deactivate(id);
     }
 }
 

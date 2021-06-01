@@ -31,7 +31,8 @@ public class NewsSqlDAO implements NewsDAO {
     @Override
     public List<News> listByBreweryId(Long breweryId) {
         List<News> news = new ArrayList<>();
-        String sql = "SELECT * FROM news WHERE brewery_id = ?";
+        String sql = "SELECT news_id, news_name, news_body, brewery_id, active " +
+                     "FROM news WHERE brewery_id = ? AND active = true";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
 
@@ -45,7 +46,8 @@ public class NewsSqlDAO implements NewsDAO {
 
     @Override
     public News findById(Long newsId) throws NewsNotFoundException {
-        String sql = "SELECT * FROM news WHERE news_id = ?";
+        String sql = "SELECT news_id, news_name, news_body, brewery_id, active " +
+                     "FROM news WHERE news_id = ? AND active = true";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, newsId);
 

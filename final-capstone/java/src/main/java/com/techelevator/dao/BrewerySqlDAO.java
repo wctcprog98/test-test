@@ -25,9 +25,20 @@ public class BrewerySqlDAO implements BreweryDAO{
     }
 
     @Override
-    public List<Brewery> findAll() {
+    public void create(Brewery breweryToAdd) {
+        String sql = "INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city, " +
+                     "brewery_state, brewery_zip, brewery_website) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+        jdbcTemplate.update(sql, breweryToAdd.getBreweryName(), breweryToAdd.getBrewerId(),
+                breweryToAdd.getBreweryStreetAddress(), breweryToAdd.getBreweryCity(), breweryToAdd.getBreweryState(),
+                breweryToAdd.getBreweryZipCode(), breweryToAdd.getBreweryWebsite());
+    }
+
+    @Override
+    public List<Brewery> listAll() {
         List<Brewery> breweries = new ArrayList<>();
-        String sql = "select * from breweries";
+        String sql = "SELECT brewery_id, brewery_name, brewer_id, brewery_street_address, brewery_city, " +
+                            "brewery_state, brewery_zip, brewery_website, active FROM breweries WHERE active = true";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
@@ -39,52 +50,40 @@ public class BrewerySqlDAO implements BreweryDAO{
     }
 
     @Override
-    public void create(Brewery breweryToAdd) {
-        String sql = "INSERT INTO breweries (brewery_name, brewer_id, brewery_street_address, brewery_city," +
-                " brewery_state, brewery_zip, brewery_website) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-        jdbcTemplate.update(sql, breweryToAdd.getBreweryName(), breweryToAdd.getBrewerId(),
-                breweryToAdd.getBreweryStreetAddress(), breweryToAdd.getBreweryCity(), breweryToAdd.getBreweryState(), breweryToAdd.getBreweryZipCode(), breweryToAdd.getBreweryWebsite());
-    }
-
-    @Override
     public Brewery findById(Long breweryId) throws BreweryNotFoundException {
-        String sql = "select * from breweries WHERE brewery_id = ?";
+        String sql = "SELECT brewery_id, brewery_name, brewer_id, brewery_street_address, brewery_city, " +
+                            "brewery_state, brewery_zip, brewery_website, active FROM breweries " +
+                     "WHERE brewery_id = ? AND active = true";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
 
-
         if(results.next()){
-            System.out.println(mapRowToBrewery(results));
-
             return mapRowToBrewery(results);
-
         }
         throw new BreweryNotFoundException();
     }
 
     @Override
-    public void deactivateBrewery(Long breweryId) throws BreweryNotFoundException {
-        String sql = "UPDATE breweries SET active = false WHERE brewery_id = ?";
+    public void update(Brewery brewery, Long id) throws BreweryNotFoundException {
+        String sql = "UPDATE breweries SET brewery_name = ?, brewer_id = ?, brewery_street_address = ?, " +
+                     "brewery_city = ?, brewery_state = ?, brewery_zip = ?, brewery_website = ?, active = ? " +
+                     "WHERE brewery_id = ?";
         try {
-
-            findById(breweryId);
-            jdbcTemplate.update(sql, breweryId);
-
-        } catch (DataAccessException e){
-                    throw new BreweryNotFoundException();
+            jdbcTemplate.update(sql, brewery.getBreweryName(), brewery.getBrewerId(), brewery.getBreweryStreetAddress(),
+                                     brewery.getBreweryCity(), brewery.getBreweryState(), brewery.getBreweryZipCode(),
+                                     brewery.getBreweryWebsite(),brewery.isActive(), id);
+        } catch (DataAccessException e) {
+            throw new BreweryNotFoundException();
         }
     }
 
     @Override
-    public void updateBrewery(Brewery brewery, Long id) throws BreweryNotFoundException {
-        String sql = "UPDATE breweries SET brewery_name = ?, brewer_id = ?, brewery_street_address = ?, brewery_city = ?, brewery_state = ?, brewery_zip = ?, brewery_website = ?, active = ?" +
-                " WHERE brewery_id = ?";
+    public void deactivate(Long breweryId) throws BreweryNotFoundException {
+        String sql = "UPDATE breweries SET active = false WHERE brewery_id = ?";
         try {
-            jdbcTemplate.update(sql, brewery.getBreweryName(), brewery.getBrewerId(), brewery.getBreweryStreetAddress(), brewery.getBreweryCity(), brewery.getBreweryState(), brewery.getBreweryZipCode(), brewery.getBreweryWebsite(),brewery.isActive(), id);
-        } catch (DataAccessException e) {
-            throw new BreweryNotFoundException();
+            jdbcTemplate.update(sql, breweryId);
+        } catch (DataAccessException e){
+                    throw new BreweryNotFoundException();
         }
     }
 

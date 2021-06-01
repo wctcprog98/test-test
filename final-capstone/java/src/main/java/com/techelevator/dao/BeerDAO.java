@@ -11,5 +11,5 @@ public interface BeerDAO {
     List<Beer> listByBreweryId(long id);
     Beer findById(Long id) throws BeerNotFoundException;
     void update(Beer beer, Long id) throws BeerNotFoundException;
-    void delete(Long id) throws BeerNotFoundException;
+    void deactivate(Long id) throws BeerNotFoundException;
 }

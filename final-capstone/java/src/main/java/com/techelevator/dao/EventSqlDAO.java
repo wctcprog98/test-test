@@ -31,9 +31,26 @@ public class EventSqlDAO implements EventDAO {
     }
 
     @Override
+    public List<Event> listUpcoming(){
+        List<Event> events = new ArrayList<>();
+        String sql = "SELECT event_id, event_name, event_date, event_time, event_description, brewery_id, active " +
+                     "FROM events WHERE active = true AND event_date >= CURRENT_DATE ORDER BY event_date LIMIT 5";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        while (results.next()) {
+            Event event = mapRowToEvent(results);
+            events.add(event);
+        }
+
+        return events;
+    }
+
+    @Override
     public List<Event> listByBreweryId(Long breweryId) {
         List<Event> events = new ArrayList<>();
-        String sql = "SELECT * FROM events WHERE brewery_id = ?";
+        String sql = "SELECT event_id, event_name, event_date, event_time, event_description, brewery_id, active " +
+                     "FROM events WHERE brewery_id = ? AND active = true";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, breweryId);
 
@@ -47,7 +64,8 @@ public class EventSqlDAO implements EventDAO {
 
     @Override
     public Event findById(Long eventId) throws EventNotFoundException {
-        String sql = "SELECT * FROM events WHERE event_id = ?";
+        String sql = "SELECT event_id, event_name, event_date, event_time, event_description, brewery_id, active " +
+                     "FROM events WHERE event_id = ? AND active = true";
 
         SqlRowSet result = jdbcTemplate.queryForRowSet(sql, eventId);
 
