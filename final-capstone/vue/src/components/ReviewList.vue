@@ -1,7 +1,10 @@
 <template>
   <div class="reviews">
     <h2>REVIEWS</h2>
-   <h6> Average Rating:    | {{ averageRating }}| </h6> 
+   <h6> Average Rating:   
+     <div class="rating">   {{ averageRating }}  </div>
+      </h6> 
+   
     <p
       v-for="review in reviews"
       v-bind:key="review.id"
@@ -24,32 +27,12 @@ export default {
       this.reviews.forEach((review) => {
         total += review.starRating;
       });
-      return total / this.reviews.length;
+      return (total / this.reviews.length).toFixed(2);
     },
   },
 };
 </script>
 
 <style>
-.reviews{
-  opacity: 100%;
-}
 
-.reviews1{
-  font-size: 25px;
-  background:  transparent;
-  background-color: white;
-  opacity: 90%;
-  color: black;
-  padding: 2%;
-  font-weight:bolder;
-
-
-  border-radius: 20px;
-  
-}
-h6{
-  color:gold;
-  font-weight: bolder;
-}
 </style>

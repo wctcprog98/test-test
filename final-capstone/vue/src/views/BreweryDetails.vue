@@ -2,7 +2,7 @@
   <div class="menu-container">
     <Header />
     <brewery-contact v-bind:brewery="this.thisBrewery" />
-    <button v-on:click="showUpdateForm()">Update</button>
+    <button class="update-form2" v-on:click="showUpdateForm()">Update</button>
     <update-brewery-form
       v-if="this.$store.state.showUpdateBreweryForm"
       v-bind:breweryNumber="breweryId"
@@ -48,4 +48,26 @@ export default {
 </script>
 
 <style>
+
+.update-form2{
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(247, 221, 104);
+  font-weight: bolder;
+  font-size: 17px;
+  
+  padding-left: 3%;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
+  margin-left: 40px;
+  width: 564px;
+  height:28px;
+}
+
+.update-form2:hover{
+background-color: rgb(255, 212, 19);
+}
 </style>

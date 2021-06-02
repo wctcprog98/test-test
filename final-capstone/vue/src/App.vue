@@ -91,10 +91,10 @@ export default {};
 .card:hover {
   transform: translateY(-1rem);
   box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
-  color: rgb(8, 8, 4);
-  font-weight: bolder;
-  font-size: 17px;
-
+  color: rgb(175, 150, 7);
+  font-weight: 900;
+  font-size: 24px;
+  text-decoration:underline;
   border-bottom: 6px solid black;
   border-right: 6px solid black;
   border-top: 0px;
@@ -300,6 +300,7 @@ img:hover {
 .contact h2 {
   text-decoration: underline;
   font-size: 40px;
+  color: rgb(175, 150, 7)
 }
 
 .beer-menu{ 
@@ -310,7 +311,88 @@ img:hover {
 
 }
 
+.beer-menu-box{
+  border: 1px solid gold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  padding: 1%;
+  margin: 2%;
+  box-shadow: 3px 2px 14px rgba(white, 0.2);
+  transition: all 200ms ease-in-out;
+  background-color: white;
+  margin-left: -1%;
+  /* beer card */
+  opacity: 50%;
+  color: rgb(8, 8, 4);
+  filter: blur(0.7px);
+  
+}
+.beer-menu-box:hover{
+  transform: translateY(-1rem);
+  box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
+  color: rgb(8, 8, 4);
+  font-weight: bolder;
+  font-size: 17px;
+  font-size: 45px;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
+  opacity: 90%;
+}
+.beerimg{
+  border: 0px;
+  border-radius: 4px;
+  object-fit:scale-down;
+  
+}
+.beerimg:hover{
+border: 0px;
+}
+.beer-des{
+    font-size: 25px;
+  background:  transparent;
+  background-color: white;
+  opacity: 88%;
+  color: black;
+  padding: 2%;
+  font-weight:bolder;
+  text-decoration: underline;
 
+  border-radius: 20px;
+  
+}
+
+.reviews{
+  opacity: 100%;
+  
+}
+
+.reviews1{
+  font-size: 25px;
+  background:  transparent;
+  background-color: white;
+  opacity: 90%;
+  color: black;
+  padding: 2%;
+  font-weight:bolder;
+  
+
+  border-radius: 20px;
+  
+}
+.rating{
+  color: rgb(223, 212, 62);
+  font-weight: bolder;
+  align-items: center;
+  border: 6px ridge green;
+  margin-right: 92%;
+  padding: .5%;
+  font-size: 30px;
+}
 @import url("http://fonts.cdnfonts.com/css/biergarten");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
 </style>

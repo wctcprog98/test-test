@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class>
     <h1>Details</h1>
     <span>Description:</span>
-    {{ beer.beerDescription }}
+   <div class="beer-des"> {{ beer.beerDescription }}</div>
     <review-list v-bind:reviews="reviews" />
   </div>
 </template>
@@ -33,4 +33,5 @@ export default {
 </script>
 
 <style>
+
 </style>
