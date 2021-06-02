@@ -132,14 +132,26 @@ export default {};
   grid-area: events-list;
   background: transparent;
   border-radius: 10px;
-  border: 6px solid black;
+  /* border: 6px solid black; */
   height: 50vh;
   max-height: 90vh;
   margin-bottom: 14.8%;
   padding-bottom: 10px;
   font-size: 1.75em;
   padding: 45px;
+  overflow-y: scroll;
+ 
 }
+::-webkit-scrollbar{
+  background-color: rgb(247, 247, 147, 0.6);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.96);
+  
+}
+
+
 
 .events {
   color: gold;
@@ -393,6 +405,7 @@ border: 0px;
   padding: .5%;
   font-size: 30px;
 }
+
 @import url("http://fonts.cdnfonts.com/css/biergarten");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
 </style>
