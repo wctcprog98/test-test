@@ -135,7 +135,7 @@ export default {};
   /* border: 6px solid black; */
   height: 50vh;
   max-height: 90vh;
-  margin-bottom: 14.8%;
+  margin-bottom: 18.5%;
   padding-bottom: 10px;
   font-size: 1.75em;
   padding: 45px;
