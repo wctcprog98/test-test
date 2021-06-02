@@ -1,10 +1,18 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class News {
 
     private Long id;
+    @NotBlank(message = "Name field must not be blank")
     private String newsName;
+    @NotBlank(message = "Body field must not be blank")
     private String newsBody;
+    @NotNull(message = "BreweryID field must not be blank")
+    @Min(value = 1, message = "Invalid Brewery ID")
     private Long breweryId;
     private boolean active;
 

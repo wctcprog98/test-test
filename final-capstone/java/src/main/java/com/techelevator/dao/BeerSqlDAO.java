@@ -1,4 +1,5 @@
 package com.techelevator.dao;
+
 import com.techelevator.Exceptions.BeerNotFoundException;
 import com.techelevator.model.Beer;
 import org.springframework.dao.DataAccessException;
@@ -11,7 +12,6 @@ import java.util.List;
 
 @Service
 @Component
-
 public class BeerSqlDAO implements BeerDAO{
 
     private JdbcTemplate jdbcTemplate;
@@ -30,12 +30,32 @@ public class BeerSqlDAO implements BeerDAO{
     }
 
     @Override
+    public List<Beer> listTopRated(){
+        List<Beer> beers = new ArrayList<>();
+        String sql = "SELECT beers.beer_id, beer_name, beer_style, beer_description, image, beer_abv, " +
+                            "brewery_id, beers.active " +
+                            "FROM beers JOIN reviews ON reviews.beer_id = beers.beer_id " +
+                            "WHERE beers.active = true AND reviews.active = true " +
+                            "GROUP BY beers.beer_id ORDER BY AVG(reviews.star_rating) DESC LIMIT 5;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+
+        while (results.next()) {
+            Beer beer = mapRowToBeer(results);
+            beers.add(beer);
+        }
+
+        return beers;
+    }
+
+    @Override
     public List<Beer> listByBreweryId(long id) {
         List<Beer> beers = new ArrayList<>();
         String sql = "SELECT beer_id, beer_name, beer_style, beer_description, image, beer_abv, brewery_id, active " +
                      "FROM beers WHERE brewery_id = ? AND active = true";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+
         while (results.next()) {
             Beer beer = mapRowToBeer(results);
             beers.add(beer);
@@ -72,6 +92,7 @@ public class BeerSqlDAO implements BeerDAO{
     @Override
     public void deactivate(Long id) throws BeerNotFoundException {
         String sql = "UPDATE beers SET active = false WHERE beer_id = ?";
+
         try {
             jdbcTemplate.update(sql, id);
         } catch (DataAccessException e) {

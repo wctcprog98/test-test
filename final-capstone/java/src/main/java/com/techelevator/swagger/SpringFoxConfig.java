@@ -1,4 +1,4 @@
-package com.techelevator.tenmo.swagger;
+package com.techelevator.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

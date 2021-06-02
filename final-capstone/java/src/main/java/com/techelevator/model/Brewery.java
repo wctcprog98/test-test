@@ -1,20 +1,30 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class Brewery {
 
     private Long id;
+    @NotBlank(message = "Name field must no be blank")
     private String breweryName;
-    private int brewerId; // grab info from object when needed
+    @NotNull(message = "Brewer ID field must not be blank")
+    @Min(value = 1, message = "Invalid Brewer")
+    private int brewerId;
     private String breweryStreetAddress;
     private String breweryCity;
     private String breweryState;
     private int breweryZipCode;
-    private boolean active;
     private String breweryWebsite;
+    private boolean active;
 
-    public Brewery(){};
+    public Brewery(){
 
-    public Brewery(Long id, String breweryName, int brewerId, String breweryStreetAddress, String breweryCity, String breweryState, int breweryZipCode, String breweryWebsite) {
+    }
+
+    public Brewery(Long id, String breweryName, int brewerId, String breweryStreetAddress, String breweryCity,
+                   String breweryState, int breweryZipCode, String breweryWebsite) {
         this.id = id;
         this.breweryName = breweryName;
         this.brewerId = brewerId;
@@ -24,7 +34,6 @@ public class Brewery {
         this.breweryZipCode = breweryZipCode;
         this.breweryWebsite = breweryWebsite;
         this.active = true;
-
     }
 
     public Long getId() {

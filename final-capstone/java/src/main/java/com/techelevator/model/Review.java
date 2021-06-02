@@ -1,13 +1,22 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 public class Review {
 
     private Long id;
+    @NotNull(message = "Beer ID field must not be blank")
+    @Min(value = 1, message = "Invalid Beer ID")
     private Long beerId;
+    @NotNull(message = "Reviewer ID field must not be blank")
+    @Min(value = 1, message = "Invalid User ID")
     private Long reviewerId;
+    @NotBlank(message = "Review body must not be blank")
     private String reviewText;
+    @NotNull(message = "Rating field cannot be blank")
+    @DecimalMin(value = "0.0", message = "Rating must be 0 or greater")
+    @DecimalMax(value = "5.0", message = "Rating must be less than 5.0")
     private BigDecimal starRating;
     private boolean active;
 

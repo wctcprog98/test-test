@@ -1,14 +1,21 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.*;
 import java.math.BigDecimal;
 
 public class Beer {
 
     private Long id;
+    @NotBlank(message = "Name field cannot be blank")
     private String beerName;
+    @NotBlank(message = "Style field cannot be blank")
     private String beerStyle;
+    @NotBlank(message = "Description field cannot be blank")
     private String beerDescription;
+    @NotNull(message = "ABV field cannot be blank")
+    @DecimalMin(value = "0.1", message = "ABV must be greater than 0")
     private BigDecimal beerAbv;
+    @NotNull(message = "BreweryId field cannot be blank")
     private Long breweryId;
     private String beerImage;
     private boolean active;

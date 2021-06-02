@@ -1,15 +1,25 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.sql.Time;
 import java.util.Date;
 
 public class Event {
 
     private Long id;
+    @NotBlank(message = "Name field must not be blank")
     private String eventName;
+    @NotNull(message = "Date field must not be blank")
+    @Future(message = "Event Date must be in the future")
     private Date eventDate;
     private Time eventTime;
+    @NotBlank(message = "Description field must not be blank")
     private String eventDescription;
+    @NotNull(message = "BreweryID field must not be blank")
+    @Min(value = 1, message = "Invalid Brewery ID")
     private Long breweryId;
     private boolean active;
 
