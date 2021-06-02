@@ -11,7 +11,7 @@ public class Brewery {
     private String breweryName;
     @NotNull(message = "Brewer ID field must not be blank")
     @Min(value = 1, message = "Invalid Brewer")
-    private int brewerId;
+    private Long brewerId;
     private String breweryStreetAddress;
     private String breweryCity;
     private String breweryState;
@@ -23,7 +23,7 @@ public class Brewery {
 
     }
 
-    public Brewery(Long id, String breweryName, int brewerId, String breweryStreetAddress, String breweryCity,
+    public Brewery(Long id, String breweryName, Long brewerId, String breweryStreetAddress, String breweryCity,
                    String breweryState, int breweryZipCode, String breweryWebsite) {
         this.id = id;
         this.breweryName = breweryName;
@@ -52,11 +52,11 @@ public class Brewery {
         this.breweryName = breweryName;
     }
 
-    public int getBrewerId() {
+    public Long getBrewerId() {
         return brewerId;
     }
 
-    public void setBrewerId(int brewerId) {
+    public void setBrewerId(Long brewerId) {
         this.brewerId = brewerId;
     }
 

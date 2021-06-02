@@ -33,7 +33,7 @@ public class ReviewSqlDAO implements ReviewDAO {
     @Override
     public List<Review> listByBreweryId(Long breweryId) {
         List<Review> reviews = new ArrayList<>();
-        String sql = "SELECT reviews_id, beer_id, reviewer_id, review_text, star_rating, active " +
+        String sql = "SELECT reviews_id, reviews.beer_id, reviewer_id, review_text, star_rating, reviews.active " +
                      "FROM reviews JOIN beers ON reviews.beer_id = beers.beer_id " +
                                   "JOIN breweries ON beers.brewery_id = breweries.brewery_id " +
                                   "WHERE breweries.brewery_id = ? AND reviews.active = true";

@@ -80,10 +80,10 @@ public class BeerSqlDAO implements BeerDAO{
     @Override
     public void update(Beer beer, Long id) throws BeerNotFoundException {
         String sql = "UPDATE beers SET beer_name = ?, beer_style = ?, beer_description = ?, image = ?, " +
-                                      "beer_abv = ?, brewery_id = ?";
+                                      "beer_abv = ?, brewery_id = ?, active = ? WHERE beer_id = ?";
         try {
             jdbcTemplate.update(sql, beer.getBeerName(), beer.getBeerStyle(), beer.getBeerDescription(),
-                                     beer.getBeerImage(), beer.getBeerAbv(), beer.getBreweryId());
+                                     beer.getBeerImage(), beer.getBeerAbv(), beer.getBreweryId(), beer.isActive(), id);
         } catch (DataAccessException e) {
             throw new BeerNotFoundException();
         }
