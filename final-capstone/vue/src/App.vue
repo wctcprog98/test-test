@@ -144,6 +144,7 @@ export default {};
 }
 ::-webkit-scrollbar{
   background-color: rgb(247, 247, 147, 0.6);
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb{
   border-radius: 10px;
