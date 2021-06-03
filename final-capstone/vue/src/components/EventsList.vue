@@ -1,6 +1,6 @@
 <template>
   <div class="events-list">
-    <h2 class="event-title">Events</h2>
+   <h1 class="brewery-label">Breweries</h1>
 
     <events-summary class="event-item"
       v-for="event in allEvents"
@@ -25,24 +25,7 @@ export default {
       this.allEvents = response.data;
     });
   },
-  methods: {
-    formatTime(time) {
-      let hour = time.substring(0, 2);
-      const min = time.substring(2, 5);
-      let period = " AM";
-
-      if (hour == 12) {
-        period = " PM";
-      } else if (hour == 0) {
-        hour = 12;
-      } else if (hour > 12) {
-        hour = hour % 12;
-        period = " PM";
-      }
-
-      return hour + min + period;
-    },
-  },
+  
 };
 </script>
 
@@ -74,7 +57,7 @@ export default {
   color: rgb(175, 150, 7);
   font-weight: 900;
   font-size: 24px;
-  text-decoration:underline;
+  /* text-decoration:underline; */
   border-bottom: 6px solid black;
   border-right: 6px solid black;
   border-top: 0px;

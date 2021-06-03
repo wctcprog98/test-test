@@ -180,8 +180,9 @@ export default {};
 body {
   background-image: url("./images/background.jpg");
   background-image: url("./images/beer-hops-background.png");
-  background-size: 110%;
+  background-size: 100%;
   background-repeat: repeat-y;
+  background-repeat: repeat-y 2;
   /* ADDITION */
   font-family: "Papyrus";
 
