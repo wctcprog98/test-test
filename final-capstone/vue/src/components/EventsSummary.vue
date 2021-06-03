@@ -1,17 +1,21 @@
-<template> 
-  <div >
-   <div class="event-name-event">  {{ event.eventName }}             </div>
-   <div class="event-time"> - {{ formatTime(event.eventTime)}}  </div> 
-   <div class="event-date"> -{{ event.eventDate  }}        </div>
+<template>
+  <div>
+    <p>{{ event.eventName }}</p>
+    <p>{{ formatTime(event.eventTime) }}</p>
+    <p>{{ getBreweryName(event.breweryId) }} {{ breweryName }}</p>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      breweryName: "",
+    };
+  },
   props: {
     event: Object,
   },
-
   methods: {
     formatTime(time) {
       let hour = time.substring(0, 2);
@@ -29,7 +33,15 @@ export default {
 
       return hour + min + period;
     },
-    
+    getBreweryName(breweryId) {
+      let breweries = this.$store.state.breweries;
+
+      breweries.forEach((brewery) => {
+        if (brewery.id == breweryId) {
+          this.breweryName = brewery.breweryName;
+        }
+      });
+    },
   },
 };
 </script>

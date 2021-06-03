@@ -2,7 +2,8 @@
   <div class="events-list">
    <h1 class="brewery-label">Breweries</h1>
 
-    <events-summary class="event-item"
+    <events-summary
+      class="event-item"
       v-for="event in allEvents"
       v-bind:key="event.id"
       v-bind:event="event"
@@ -25,12 +26,11 @@ export default {
       this.allEvents = response.data;
     });
   },
-  
 };
 </script>
 
 <style>
-.event-item{
+.event-item {
   border: 1px solid white;
 }
 .event-item {
@@ -57,7 +57,7 @@ export default {
   color: rgb(175, 150, 7);
   font-weight: 900;
   font-size: 24px;
-  /* text-decoration:underline; */
+  text-decoration: underline;
   border-bottom: 6px solid black;
   border-right: 6px solid black;
   border-top: 0px;
@@ -66,7 +66,7 @@ export default {
   opacity: 90%;
 }
 
-.event-title{
-  color:white;
+.event-title {
+  color: white;
 }
 </style>

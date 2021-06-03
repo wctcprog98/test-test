@@ -8,6 +8,9 @@ export default {
     listByBreweryId(breweryId) {
         return http.get(`/breweries/${breweryId}/beer`)
     },
+    listTopRated() {
+        return http.get(`/beer`)
+    },
     create(beer) {
         return http.post(`/beer`, beer)
     },
@@ -20,5 +23,4 @@ export default {
     get(beerId) {
         return http.get(`/beer/${beerId}`)
     }
-
 }
