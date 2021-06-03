@@ -12,6 +12,8 @@ public class RegisterUserDTO {
     private String confirmPassword;
     @NotEmpty(message = "Please select a role for this user.")
     private String role;
+    private String accountType;
+    private String userLocation;
 
     public String getUsername() {
         return username;
@@ -43,5 +45,21 @@ public class RegisterUserDTO {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    public String getUserLocation() {
+        return userLocation;
+    }
+
+    public void setUserLocation(String userLocation) {
+        this.userLocation = userLocation;
     }
 }

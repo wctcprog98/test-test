@@ -20,10 +20,13 @@ public class User {
 
    public User() { }
 
-   public User(Long id, String username, String password, String authorities) {
+   public User(Long id, String username, String password, String authorities,
+               String accountType, String userLocation) {
       this.id = id;
       this.username = username;
       this.password = password;
+      this.accountType = accountType;
+      this.userLocation = userLocation;
       this.active = true;
    }
 
