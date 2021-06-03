@@ -63,11 +63,13 @@ public class UserSqlDAO implements UserDAO {
     }
 
     @Override
-    public boolean create(String username, String password, String role) {
+    public boolean create(String username, String password, String role, String accountType,
+                          String userLocation) {
         boolean userCreated = false;
 
         // create user
-        String insertUser = "insert into users (username,password_hash,role) values(?,?,?)";
+        String insertUser = "insert into users (username,password_hash,role,account_type,user_location) " +
+                            "values(?,?,?,?,?)";
         String password_hash = new BCryptPasswordEncoder().encode(password);
         String ssRole = "ROLE_" + role.toUpperCase();
 
@@ -78,6 +80,8 @@ public class UserSqlDAO implements UserDAO {
                     ps.setString(1, username);
                     ps.setString(2, password_hash);
                     ps.setString(3, ssRole);
+                    ps.setString(4, accountType);
+                    ps.setString(5, userLocation);
                     return ps;
                 }
                 , keyHolder) == 1;
