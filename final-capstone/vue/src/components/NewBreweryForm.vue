@@ -2,7 +2,7 @@
   <div>
     <button v-on:click="showForm = !showForm">Add a New Brewery</button>
 
-    <form v-show="showForm" v-on:submit.prevent="addBrewery()">
+    <form class="brew-form" v-show="showForm" v-on:submit.prevent="addBrewery()">
       <label for="brewery-name">Brewery Name</label>
       <input type="text" name="brewery-name" v-model="newBrewery.breweryName" />
 
@@ -77,5 +77,22 @@ form {
   display: flex;
   flex-direction: column;
   width: 33%;
+}
+.brew-form{
+  margin-left:40pxpx;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(247, 221, 104);
+  font-weight: bolder;
+  font-size: 17px;
+  padding: 1%;
+  padding-left: 3%;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
+  opacity: 90%;
+  width: 500px;
 }
 </style>

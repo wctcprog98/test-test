@@ -128,6 +128,7 @@ export default {};
   border-radius: 10px;
   height: 60vh;
   overflow-y: scroll;
+  margin-bottom: 4%;
 }
 
 .events-list {
@@ -135,13 +136,16 @@ export default {};
   background: transparent;
   border-radius: 10px;
   /* border: 6px solid black; */
-  height: 50vh;
-  max-height: 90vh;
+  
+  height: 600px;
   margin-bottom: 18.5%;
   padding-bottom: 10px;
   font-size: 1.75em;
   padding: 45px;
   overflow-y: scroll;
+  margin-top: 70px;
+  margin-left: -4%;
+  margin-right: 6%;
 }
 ::-webkit-scrollbar {
   background-color: rgb(247, 247, 147, 0.6);

@@ -106,7 +106,7 @@ export default {
 
 <style>
 .update-form {
-  /* margin-left:10%; */
+  margin-left:72px;
   border: 2px solid black;
   border-radius: 15px;
   background-color: rgb(247, 221, 104);

@@ -56,14 +56,14 @@ export default {
   font-weight: bolder;
   font-size: 17px;
   
-  padding-left: 3%;
+  padding-left: 1%;
   border-bottom: 6px solid black;
   border-right: 6px solid black;
   border-top: 0px;
   border-left: 0px;
   filter: blur(0px);
-  margin-left: 40px;
-  width: 564px;
+  margin-left: 70px;
+  width: 164px;
   height:28px;
 }
 
