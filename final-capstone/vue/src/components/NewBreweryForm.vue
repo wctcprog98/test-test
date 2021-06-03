@@ -2,17 +2,13 @@
   <div>
     <button v-on:click="showForm = !showForm">Add a New Brewery</button>
 
-    <form class="brew-form" v-show="showForm" v-on:submit.prevent="addBrewery()">
+    <form
+      class="brew-form"
+      v-show="showForm"
+      v-on:submit.prevent="addBrewery()"
+    >
       <label for="brewery-name">Brewery Name</label>
       <input type="text" name="brewery-name" v-model="newBrewery.breweryName" />
-
-      <label for="brewer-id">Brewery ID</label>
-      <input
-        v-model="newBrewery.brewerId"
-        type="text"
-        placeholder="do I work?"
-        name="brewer-id"
-      />
 
       <label for="brewery-address"> Address</label>
       <input
@@ -55,8 +51,9 @@ export default {
   data() {
     return {
       showForm: false,
-
-      newBrewery: {},
+      newBrewery: {
+        brewerId: this.$store.state.user.id,
+      },
     };
   },
   methods: {
@@ -78,8 +75,8 @@ form {
   flex-direction: column;
   width: 33%;
 }
-.brew-form{
-  margin-left:40pxpx;
+.brew-form {
+  margin-left: 40pxpx;
   border: 2px solid black;
   border-radius: 15px;
   background-color: rgb(247, 221, 104);

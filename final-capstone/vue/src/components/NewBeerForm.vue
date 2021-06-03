@@ -1,46 +1,53 @@
 <template>
   <div>
-    <button v-on:click="showForm = !showForm">Add a New Brewery</button>
+    <button v-on:click="showForm = !showForm">Add a New Beer</button>
 
-    <form v-show="showForm" v-on:submit.prevent="addBrewery()">
-      <label for="new-beer">Brewery Name</label>
+    <form v-show="showForm" v-on:submit.prevent="addBeer()">
+      <label for="beer-name">Name: </label>
       <input type="text" name="beer-name" v-model="newBeer.beerName" />
 
-      <label for="beer-address"> Address</label>
-      <input
-        v-model="newBeer.beerStreetAddress"
-        type="text"
-        name="beer-address"
-      />
+      <label for="beer-style">Style: </label>
+      <input v-model="newBeer.beerStyle" type="text" name="beer-style" />
 
-      <label for="beer-city"> City</label>
-      <input v-model="newBeer.beerCity" type="text" name="beer-city" />
+      <label for="beer-desc">Description: </label>
+      <textarea v-model="newBeer.beerDescription" name="beer-desc" />
 
-      <label for="beer-state"> State</label>
-      <input v-model="newBeer.beerState" type="text" name="beer-state" />
+      <label for="beer-abv">ABV: </label>
+      <input v-model="newBeer.beerAbv" type="text" name="beer-abv" />
 
-      <label for="beer-abv">Zip</label>
-      <inputd v-model="newBeer.beerAbv" type="text" name="beer-abv" />
-
-      <label for="brewery-id">Brewery ID</label>
-      <input v-model="newBeer.breweryId" type="text" name="brewery-id" />
       <button type="submit" class="btn save">Save</button>
     </form>
+    <button
+      class="new-beer-cancel"
+      v-show="showForm"
+      v-on:click="showForm = !showForm"
+    >
+      Cancel
+    </button>
   </div>
 </template>
 
 <script>
-import breweryService from "@/services/BeerService";
+import beerService from "@/services/BeerService";
 export default {
   data() {
     return {
       showForm: false,
-
-      newBeer: {},
+      newBeer: {
+        beerName: "",
+        beerStyle: "",
+        beerDescription: "",
+        beerAbv: "",
+        breweryId: this.breweryNumber,
+        breweryImage: "",
+      },
     };
   },
+  props: {
+    breweryNumber: Number,
+  },
   methods: {
-    addBrewery() {
+    addBeer() {
       beerService.create(this.newBeer).then((response) => {
         if (response.status === 201) {
           this.showForm = false;

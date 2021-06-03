@@ -9,7 +9,11 @@
         <div class="beer-style">{{ beer.beerStyle }}</div>
         <div class="beer-abv">{{ beer.beerAbv + "%" }}</div>
       </div>
-      <beer-detail v-show="!isHidden" v-bind:beer="beer" />
+      <beer-detail
+        v-show="!isHidden"
+        v-bind:beer="beer"
+        v-bind:brewerId="brewerId"
+      />
       <button
         class="btn"
         v-show="!isHidden"
@@ -32,6 +36,7 @@ export default {
   },
   props: {
     beer: Object,
+    brewerId: Number,
   },
   methods: {
     toggleHidden() {
@@ -42,5 +47,4 @@ export default {
 </script>
 
 <style >
-
 </style>

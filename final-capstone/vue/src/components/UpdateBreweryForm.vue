@@ -94,11 +94,12 @@ export default {
       this.$store.commit("TOGGLE_UPDATE_BREWERY");
     },
     deactivate() {
-      breweryService.delete(this.breweryNumber).then((response) => {
-        if (response.status === 200) {
-          this.$router.push({ name: "home" });
-        }
-      });
+      if (confirm("Are you sure you want to permanently delete this brewery?"))
+        breweryService.delete(this.breweryNumber).then((response) => {
+          if (response.status === 200) {
+            this.$router.push({ name: "home" });
+          }
+        });
     },
   },
 };
@@ -106,7 +107,7 @@ export default {
 
 <style>
 .update-form {
-  margin-left:72px;
+  margin-left: 72px;
   border: 2px solid black;
   border-radius: 15px;
   background-color: rgb(247, 221, 104);

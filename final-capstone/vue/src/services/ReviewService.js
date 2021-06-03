@@ -14,8 +14,8 @@ export default {
     listByBeerId(beerId) {
         return http.get(`/beer/${beerId}/reviews`)
     },
-    create() {
-        return http.post(`/reviews`)
+    create(review) {
+        return http.post(`/reviews`, review)
     },
     update(review, id) {
         return http.put(`/reviews/${id}`, review)
