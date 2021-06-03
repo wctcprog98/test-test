@@ -38,7 +38,6 @@ export default {
 
       breweries.forEach((brewery) => {
         if (brewery.id == breweryId) {
-          console.log(brewery);
           this.breweryName = brewery.breweryName;
         }
       });
