@@ -50,6 +50,10 @@ export default {};
   border-radius: 10px;
 
   border: 0px solid whitesmoke;
+  max-height: 120vh;
+}
+
+.brewery-card-scroll {
   overflow-y: scroll;
   max-height: 120vh;
 }
@@ -60,8 +64,6 @@ export default {};
   color: white;
   font-size: 1.5em;
   color: gold;
- 
-
 }
 
 .beer-name-link {
@@ -94,7 +96,7 @@ export default {};
   color: rgb(175, 150, 7);
   font-weight: 900;
   font-size: 24px;
-  text-decoration:underline;
+  text-decoration: underline;
   border-bottom: 6px solid black;
   border-right: 6px solid black;
   border-top: 0px;
@@ -124,8 +126,8 @@ export default {};
   grid-area: TopRated;
   background: transparent;
   border-radius: 10px;
-  border: 6px solid black;
-  max-height: 60vh;
+  max-height: 90vh;
+  overflow-y: scroll;
 }
 
 .events-list {
@@ -140,19 +142,15 @@ export default {};
   font-size: 1.75em;
   padding: 45px;
   overflow-y: scroll;
- 
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   background-color: rgb(247, 247, 147, 0.6);
   border-radius: 10px;
 }
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.96);
-  
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.96);
 }
-
-
 
 .events {
   color: gold;
@@ -308,23 +306,20 @@ img:hover {
   filter: blur(0px);
   opacity: 90%;
   margin-right: 33%;
-  margin-left: 3%
+  margin-left: 3%;
 }
 .contact h2 {
   text-decoration: underline;
   font-size: 40px;
-  color: rgb(175, 150, 7)
+  color: rgb(175, 150, 7);
 }
 
-.beer-menu{ 
-  
+.beer-menu {
   margin: 1%;
   padding: 3%;
-  
-
 }
 
-.beer-menu-box{
+.beer-menu-box {
   border: 1px solid gold;
   display: flex;
   justify-content: space-between;
@@ -340,9 +335,8 @@ img:hover {
   opacity: 50%;
   color: rgb(8, 8, 4);
   filter: blur(0.7px);
-  
 }
-.beer-menu-box:hover{
+.beer-menu-box:hover {
   transform: translateY(-1rem);
   box-shadow: 3px 2px 18px rgba(255.255.255, 0.4);
   color: rgb(8, 8, 4);
@@ -356,54 +350,49 @@ img:hover {
   filter: blur(0px);
   opacity: 90%;
 }
-.beerimg{
+.beerimg {
   border: 0px;
   border-radius: 4px;
-  object-fit:scale-down;
-  
+  object-fit: scale-down;
 }
-.beerimg:hover{
-border: 0px;
+.beerimg:hover {
+  border: 0px;
 }
-.beer-des{
-    font-size: 25px;
-  background:  transparent;
+.beer-des {
+  font-size: 25px;
+  background: transparent;
   background-color: white;
   opacity: 88%;
   color: black;
   padding: 2%;
-  font-weight:bolder;
+  font-weight: bolder;
   text-decoration: underline;
 
   border-radius: 20px;
-  
 }
 
-.reviews{
+.reviews {
   opacity: 100%;
-  
 }
 
-.reviews1{
+.reviews1 {
   font-size: 25px;
-  background:  transparent;
+  background: transparent;
   background-color: white;
   opacity: 90%;
   color: black;
   padding: 2%;
-  font-weight:bolder;
-  
+  font-weight: bolder;
 
   border-radius: 20px;
-  
 }
-.rating{
+.rating {
   color: rgb(223, 212, 62);
   font-weight: bolder;
   align-items: center;
   border: 6px ridge green;
   margin-right: 92%;
-  padding: .5%;
+  padding: 0.5%;
   font-size: 30px;
 }
 

@@ -1,24 +1,18 @@
 package com.techelevator.dao;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.techelevator.Exceptions.BeerNotFoundException;
 import com.techelevator.Exceptions.BreweryNotFoundException;
 import com.techelevator.Exceptions.ReviewNotFoundException;
 import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
-import com.techelevator.model.News;
 import com.techelevator.model.Review;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import javax.sql.DataSource;
-
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 public class ReviewSqlDAOTest extends DAOIntegrationTest {
 
