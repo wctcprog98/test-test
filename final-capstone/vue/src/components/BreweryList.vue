@@ -1,6 +1,6 @@
 <template>
   <div class="BreweryCard">
-    <h1 class="brewery-label">Breweries</h1>
+    <h1 class="brewery-label"> Breweries:</h1>
 
     <div class="search-bar">
       <label for="" class="search-label">Name: </label>
@@ -86,5 +86,10 @@ export default {
   display: flex;
   justify-content: space-around;
   margin-bottom: 2%;
+  border: 0px solid white;
+  padding: 1.5%;
+   background-color: rgb(153, 119, 8);
+   border-radius: 20px;
+   
 }
 </style>

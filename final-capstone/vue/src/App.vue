@@ -126,7 +126,7 @@ export default {};
   grid-area: TopRated;
   background: transparent;
   border-radius: 10px;
-  max-height: 90vh;
+  height: 60vh;
   overflow-y: scroll;
 }
 
@@ -269,7 +269,14 @@ img:hover {
   opacity: 100%;
 }
 .brewery-label {
-  color: white;
+ color: white;
+  background-color: rgb(92, 76, 43);
+  margin-right: 80%;
+  border-radius: 20px;
+  justify-content: center;
+   border: 0px solid white;
+
+   padding: 1%;
 }
 .form-register {
   height: auto;

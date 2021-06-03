@@ -1,6 +1,8 @@
 <template>
+  <div>
+    <h1 class="rated-title">  Top Rated Beers :</h1>
   <div class="TopRated">
-    <h1 class="rated-title">Top Rated</h1>
+    
 
     <top-rated-summary
       class="event-item"
@@ -9,6 +11,7 @@
       :beer="beer"
     />
   </div>
+</div>
 </template>
 
 <script>
@@ -34,6 +37,13 @@ export default {
 
 <style>
 .rated-title {
-  color: black;
+  color: white;
+  border: 0px solid white;
+  background-color:  rgb(92, 76, 43);
+  margin-right: 68%;
+  border-radius: 20px;
+  justify-content: center;
+  padding: 1%;
+  
 }
 </style>

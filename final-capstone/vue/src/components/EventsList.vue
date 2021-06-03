@@ -1,13 +1,14 @@
 <template>
   <div class="events-list">
-   <h1 class="brewery-label">Breweries</h1>
-
-    <events-summary
+   <h1 class="event-label">Upcoming Events!</h1>
+<div  >
+    <events-summary 
       class="event-item"
       v-for="event in allEvents"
       v-bind:key="event.id"
       v-bind:event="event"
     />
+  </div>
   </div>
 </template>
 
