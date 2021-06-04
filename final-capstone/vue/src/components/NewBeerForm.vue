@@ -2,7 +2,7 @@
   <div>
     <button v-on:click="showForm = !showForm">Add a New Beer</button>
 
-    <form v-show="showForm" v-on:submit.prevent="addBeer()">
+    <form class="b-form" v-show="showForm" v-on:submit.prevent="addBeer()">
       <label for="beer-name">Name: </label>
       <input type="text" name="beer-name" v-model="newBeer.beerName" />
 
@@ -60,4 +60,21 @@ export default {
 </script>
 
 <style>
+.b-form{
+   margin-left: 2px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(247, 221, 104);
+  font-weight: bolder;
+  font-size: 17px;
+  padding: 1%;
+  padding-left: 3%;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
+  opacity: 90%;
+  width: 500px;
+}
 </style>

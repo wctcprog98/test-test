@@ -56,4 +56,9 @@ export default {
 </script>
 
 <style>
+.delete-beer{
+  float: right;
+  background-color: red;
+  opacity: 80%;
+}
 </style>

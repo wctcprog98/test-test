@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <button v-on:click="showForm = !showForm">Add a New Beer</button>
+  <div >
+    <button  v-on:click="showForm = !showForm">Add a New Beer</button>
 
-    <form v-show="showForm" v-on:submit.prevent="addBrewery()">
+    <form  v-show="showForm" v-on:submit.prevent="addBrewery()">
       <label for="beer-name">beer Name</label>
       <input type="text" name="beer-name" v-model="newBeer.beerName" />
 
@@ -59,6 +59,6 @@ export default {
   },
 };
 </script>
-
 <style>
+
 </style>

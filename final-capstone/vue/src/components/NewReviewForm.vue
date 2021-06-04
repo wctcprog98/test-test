@@ -1,7 +1,7 @@
 <template>
   <div>
     <button v-on:click="showForm = !showForm">Add a New Review</button>
-    <form v-show="showForm">
+    <form class="reviews-form" v-show="showForm">
       <label for="star-rating">Star Rating</label>
       <select name="star-rating" v-model="newReview.starRating">
         <option value="">--Please select a star rating</option>
@@ -57,4 +57,24 @@ export default {
 </script>
 
 <style>
+.reviews-form{
+  margin-left: 2px;
+  border: 2px solid black;
+  border-radius: 15px;
+  background-color: rgb(247, 221, 104);
+  font-weight: bolder;
+  font-size: 17px;
+  padding: 2%;
+  padding-left: 3%;
+  border-bottom: 6px solid black;
+  border-right: 6px solid black;
+  border-top: 0px;
+  border-left: 0px;
+  filter: blur(0px);
+  opacity: 90%;
+  width: 500px;
+  color: black;
+  height: 150px;
+  justify-content: center;
+}
 </style>
